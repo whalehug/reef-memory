@@ -1,0 +1,541 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reef Memory</title>
+<meta name="description" content="A memory game with __COUNT__ reef animals photographed by iNaturalist divers and naturalists.">
+<style>
+  :root {
+    --deep: #04233a;
+    --mid: #0a4a6e;
+    --shallow: #136b8e;
+    --foam: #e8f6fb;
+    --sand: #f4e3c1;
+    --coral: #ff7a59;
+    --kelp: #3fbf9b;
+    --ink: #e8f6fb;
+    --muted: #b5d6e4;
+    --card: #0d3550;
+    --panel: rgba(4, 35, 58, .94);
+    --radius: 14px;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  html { scrollbar-gutter: stable; }
+  body {
+    min-height: 100vh;
+    font-family: ui-rounded, "SF Pro Rounded", system-ui, -apple-system, "Segoe UI", sans-serif;
+    color: var(--ink);
+    background: linear-gradient(180deg, var(--shallow) 0%, var(--mid) 30%, var(--deep) 100%) fixed;
+    background-color: var(--deep);
+  }
+  .bubbles { position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 0; }
+  .bubbles span {
+    position: absolute; bottom: -20px; border-radius: 50%;
+    border: 1px solid rgba(232, 246, 251, .35); background: rgba(232, 246, 251, .06);
+    animation: rise linear infinite;
+  }
+  @keyframes rise { to { transform: translateY(-110vh) translateX(20px); opacity: 0; } }
+
+  main { position: relative; z-index: 1; max-width: 820px; margin: 0 auto; padding: 20px 16px 220px; }
+  header { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 10px 16px; }
+  h1 { margin: 0; font-size: clamp(1.6rem, 5vw, 2.3rem); letter-spacing: -.02em; }
+  .sub { margin: 4px 0 0; font-size: .92rem; color: var(--foam); opacity: .9; }
+  .controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  .levels-wrap { display: inline-flex; align-items: center; gap: 6px; }
+  .levels-label { font-size: .85rem; color: var(--muted); }
+  .levels { display: inline-flex; border-radius: 999px; overflow: hidden; border: 1px solid rgba(232, 246, 251, .3); }
+  .levels button { font: inherit; font-size: .85rem; border: 0; padding: 6px 12px; background: rgba(4, 35, 58, .6); color: var(--foam); cursor: pointer; }
+  .levels button[aria-pressed="true"] { background: var(--foam); color: var(--deep); font-weight: 700; }
+  .pills { display: inline-flex; gap: 8px; }
+  .pill { background: rgba(4, 35, 58, .6); border: 1px solid rgba(232, 246, 251, .18); border-radius: 999px; padding: 6px 12px; font-variant-numeric: tabular-nums; font-size: .88rem; white-space: nowrap; }
+  button.action {
+    font: inherit; font-size: .9rem; cursor: pointer; border: 0; border-radius: 999px; padding: 7px 14px;
+    background: var(--coral); color: #2a0d04; font-weight: 700;
+  }
+  button.action.ghost { background: rgba(232, 246, 251, .14); color: var(--foam); }
+  button.action:hover { filter: brightness(1.08); }
+  button:focus-visible, a:focus-visible { outline: 3px solid var(--sand); outline-offset: 2px; }
+
+  .status { margin: 14px 0 12px; min-height: 1.4em; font-size: .95rem; color: var(--foam); }
+  .status strong { color: var(--sand); }
+
+  .game { display: block; }
+  .board {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 0 auto; width: 100%;
+    max-width: max(320px, calc((100vh - 360px) * var(--ratio, 1)));
+  }
+  .board.wide { grid-template-columns: repeat(6, 1fr); gap: 8px; }
+  .card { aspect-ratio: 1; perspective: 800px; border: 0; padding: 0; background: none; cursor: pointer; border-radius: var(--radius); }
+  .card-inner { position: relative; width: 100%; height: 100%; transition: transform .45s cubic-bezier(.2,.7,.3,1); transform-style: preserve-3d; }
+  .card.flipped .card-inner, .card.matched .card-inner { transform: rotateY(180deg); }
+  .face { position: absolute; inset: 0; border-radius: var(--radius); backface-visibility: hidden; overflow: hidden; }
+  .back {
+    background:
+      radial-gradient(circle at 30% 30%, rgba(232,246,251,.18) 0 6%, transparent 7%),
+      radial-gradient(circle at 70% 62%, rgba(232,246,251,.12) 0 4%, transparent 5%),
+      radial-gradient(circle at 45% 78%, rgba(232,246,251,.1) 0 3%, transparent 4%),
+      linear-gradient(160deg, #135d82, #0b3a57);
+    border: 1px solid rgba(232, 246, 251, .18);
+    display: grid; place-items: center;
+  }
+  .back svg { width: 38%; opacity: .55; }
+  .front { transform: rotateY(180deg); background: var(--card); }
+  .front img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .front .label {
+    position: absolute; left: 0; right: 0; bottom: 0; padding: 18px 7px 6px; font-size: 12px; line-height: 1.2;
+    background: linear-gradient(transparent, rgba(4,35,58,.92)); text-align: left; color: var(--foam);
+  }
+  .front .label span { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; hyphens: auto; }
+  .front.noimg { display: grid; place-items: center; background: linear-gradient(160deg, var(--kelp), #1f7d68); }
+  .front.noimg img { display: none; }
+  .front.noimg .label { position: static; background: none; text-align: center; font-weight: 700; font-size: 13px; padding: 6px; }
+  .card.miss .front { box-shadow: inset 0 0 0 3px var(--coral); }
+  .card.matched .front { box-shadow: inset 0 0 0 3px var(--kelp); }
+  .card.matched { animation: pop .7s cubic-bezier(.3,1.6,.5,1) .35s both; }
+  @keyframes pop {
+    0% { transform: scale(1); filter: drop-shadow(0 0 0 rgba(63,191,155,0)); }
+    40% { transform: scale(1.12) rotate(-2deg); filter: drop-shadow(0 0 18px rgba(63,191,155,.9)); }
+    100% { transform: scale(1); filter: drop-shadow(0 0 6px rgba(63,191,155,.45)); }
+  }
+
+  .fx { position: fixed; inset: 0; pointer-events: none; z-index: 5; overflow: hidden; }
+  .fx .b { position: absolute; border-radius: 50%; border: 1.5px solid rgba(232,246,251,.85); background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.7), rgba(232,246,251,.08) 60%); }
+  .fx .ring { position: absolute; border-radius: 50%; border: 3px solid var(--kelp); }
+  .fx .name { position: absolute; transform: translate(-50%, -50%); font-weight: 700; color: var(--sand); text-shadow: 0 2px 8px rgba(4,35,58,.9); white-space: nowrap; font-size: 1rem; }
+
+  .log-wrap { margin-top: 18px; }
+  .log-title { margin: 0 0 6px; font-size: .8rem; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+  .log { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; min-height: 32px; }
+  .log .hint { color: var(--muted); font-size: .85rem; }
+  .log button { font: inherit; font-size: .8rem; display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px 3px 3px; border-radius: 999px; border: 1px solid rgba(232,246,251,.22); background: rgba(4,35,58,.6); color: var(--ink); cursor: pointer; }
+  .log img { width: 24px; height: 24px; border-radius: 50%; object-fit: cover; }
+
+  .sheet {
+    position: fixed; left: 50%; bottom: 12px; z-index: 6; width: min(820px, calc(100% - 24px));
+    transform: translate(-50%, calc(100% + 24px)); transition: transform .4s cubic-bezier(.2,.8,.3,1);
+    background: var(--panel); backdrop-filter: blur(8px); border: 1px solid rgba(232, 246, 251, .2);
+    border-radius: var(--radius); padding: 14px; box-shadow: 0 12px 40px rgba(0,0,0,.4);
+  }
+  .sheet.open { transform: translate(-50%, 0); }
+  .sheet .fact { display: grid; grid-template-columns: 104px 1fr; gap: 14px; align-items: start; }
+  .sheet img.photo { width: 104px; height: 104px; object-fit: cover; border-radius: 10px; }
+  .sheet h2 { margin: 0; font-size: 1.15rem; padding-right: 40px; }
+  .sheet .sci { font-style: italic; color: var(--muted); font-size: .88rem; }
+  .sheet p { margin: 6px 0; line-height: 1.45; }
+  .sheet .meta { font-size: .76rem; color: var(--muted); line-height: 1.5; }
+  .sheet a { color: var(--sand); }
+  .sheet .close { position: absolute; top: 6px; right: 6px; width: 36px; height: 36px; border-radius: 50%; border: 0; background: rgba(232,246,251,.12); color: var(--ink); font-size: 1.2rem; cursor: pointer; }
+  .sheet .intro { color: var(--muted); margin: 0; line-height: 1.5; }
+  .zoom { position: relative; display: block; padding: 0; border: 0; background: none; border-radius: 10px; cursor: zoom-in; }
+  .zoom::after { content: ""; position: absolute; right: 6px; bottom: 6px; width: 26px; height: 26px; border-radius: 50%; background: rgba(4,35,58,.75) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23e8f6fb' stroke-width='2.4' stroke-linecap='round'%3E%3Ccircle cx='10.5' cy='10.5' r='6'/%3E%3Cpath d='M15 15l5 5M10.5 8v5M8 10.5h5'/%3E%3C/svg%3E") center / 16px no-repeat; }
+  .lightbox { width: min(1100px, calc(100vw - 24px)); max-height: calc(100dvh - 24px); padding: 0; border: 0; border-radius: var(--radius); background: var(--deep); color: var(--ink); overflow: hidden; }
+  .lightbox::backdrop { background: rgba(2, 16, 28, .82); backdrop-filter: blur(4px); }
+  .lightbox img { display: block; width: 100%; max-height: calc(100dvh - 220px); object-fit: contain; background: #021019; }
+  .lightbox .cap { display: flex; justify-content: space-between; align-items: start; gap: 12px; padding: 12px 14px 14px; font-size: .85rem; }
+  .lightbox .cap h2 { margin: 0; font-size: 1.15rem; }
+  .lightbox .cap .sci { font-style: italic; color: var(--muted); font-size: .88rem; }
+  .lightbox .cap p { margin: 6px 0; font-size: .95rem; line-height: 1.45; max-width: 70ch; }
+  .lightbox .cap .meta { color: var(--muted); font-size: .76rem; }
+  .lightbox .cap a { color: var(--sand); }
+  .lightbox .close { flex: none; width: 40px; height: 40px; border-radius: 50%; border: 0; background: rgba(232,246,251,.14); color: var(--ink); font-size: 1.3rem; cursor: pointer; }
+  .sheet .won h2 { color: var(--sand); }
+  .sheet .won .buttons { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+
+  details { margin-top: 28px; font-size: .78rem; color: var(--muted); }
+  details summary { cursor: pointer; }
+  details ul { padding-left: 18px; columns: 2 260px; }
+  details a { color: var(--muted); }
+
+  /* Wide, landscape-shaped screens: the fact panel docks beside the board. Portrait windows give the board the full width. */
+  @media (min-width: 760px) and (min-aspect-ratio: 5/4) {
+    main { max-width: 1180px; padding-bottom: 48px; }
+    .game { display: grid; grid-template-columns: minmax(0, 1fr) clamp(240px, 28vw, 320px); gap: 24px; align-items: start; }
+    .board { max-width: max(320px, calc((100vh - 190px) * var(--ratio, 1))); }
+    .side { position: sticky; top: 16px; }
+    .sheet, .sheet.open { position: static; transform: none; width: auto; transition: none; box-shadow: none; background: rgba(4, 35, 58, .7); }
+    .sheet .fact { grid-template-columns: 1fr; }
+    .sheet .zoom { width: 100%; }
+    .sheet img.photo { width: 100%; height: 180px; }
+    .sheet .close { display: none; }
+    .sheet h2 { padding-right: 0; }
+  }
+  @media (max-width: 560px) {
+    main { padding-top: 16px; }
+    .sub { display: none; }
+    .controls { width: 100%; }
+    .pills { width: 100%; }
+    h1 { font-size: 1.5rem; }
+    .board { gap: 6px; max-width: none; }
+    .board.wide { gap: 5px; }
+    .board.wide .front .label { display: none; }
+    .front .label { font-size: 11px; padding: 14px 5px 5px; }
+    .front .label span { -webkit-line-clamp: 3; }
+    .card, .face { border-radius: 10px; }
+    .status { font-size: .9rem; }
+    .sheet { padding: 12px; }
+    .sheet .fact { grid-template-columns: 64px 1fr; gap: 10px; }
+    .sheet img.photo { width: 64px; height: 64px; }
+    .zoom::after { width: 20px; height: 20px; right: 3px; bottom: 3px; background-size: 12px; }
+    .sheet .meta { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .sheet p { font-size: .92rem; }
+  }
+  @media (pointer: coarse) {
+    .levels button, .log button, button.action { min-height: 44px; }
+    .levels button { min-width: 44px; }
+    .sheet .close { width: 44px; height: 44px; top: 2px; right: 2px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .bubbles, .fx { display: none; }
+    .card-inner, .sheet { transition: none !important; }
+    .card.matched { animation: none; }
+  }
+</style>
+</head>
+<body>
+<div class="bubbles" aria-hidden="true"></div>
+<div class="fx" aria-hidden="true"></div>
+<main>
+  <header>
+    <div>
+      <h1>Reef Memory</h1>
+      <p class="sub">A memory game with __COUNT__ reef animals photographed on iNaturalist.</p>
+    </div>
+    <div class="controls">
+      <div class="levels-wrap">
+        <span class="levels-label" id="levels-label">Pairs</span>
+        <div class="levels" role="group" aria-labelledby="levels-label">
+          <button type="button" data-pairs="8" aria-pressed="true">8</button>
+          <button type="button" data-pairs="12" aria-pressed="false">12</button>
+          <button type="button" data-pairs="18" aria-pressed="false">18</button>
+        </div>
+      </div>
+      <button class="action" id="restart" type="button">New dive</button>
+      <div class="pills">
+        <span class="pill" id="moves">0 moves</span>
+        <span class="pill" id="pairs">0 of 8 found</span>
+      </div>
+    </div>
+  </header>
+
+  <p class="status" id="status" role="status"></p>
+
+  <div class="game">
+    <div class="board" id="board" role="group" aria-label="Memory cards. Arrow keys move between cards."></div>
+    <aside class="side">
+      <section class="sheet" id="sheet" aria-label="Animal facts"></section>
+<dialog class="lightbox" id="lightbox" aria-label="Photo"></dialog>
+      <section class="log-wrap" aria-labelledby="log-title">
+        <h2 class="log-title" id="log-title">Dive log</h2>
+        <div class="log" id="log"></div>
+      </section>
+    </aside>
+  </div>
+
+  <details>
+    <summary>About the photos</summary>
+    <p>Photos and observation counts come from <a href="https://www.inaturalist.org/">iNaturalist</a> open data. Each photo keeps its own license; follow a credit to see its photo page.</p>
+    <ul id="credits"></ul>
+  </details>
+</main>
+
+<script>
+const TAXA = __TAXA__;
+
+const LICENSES = { "cc0": "CC0", "cc-by": "CC BY", "cc-by-sa": "CC BY-SA", "cc-by-nc": "CC BY-NC", "cc-by-nc-sa": "CC BY-NC-SA" };
+const COLS = { 8: 4, 12: 6, 18: 6 };
+const NEXT = { 8: 12, 12: 18, 18: 8 };
+
+const board = document.getElementById("board");
+const sheet = document.getElementById("sheet");
+const log = document.getElementById("log");
+const statusEl = document.getElementById("status");
+const fx = document.querySelector(".fx");
+const movesEl = document.getElementById("moves");
+const pairsEl = document.getElementById("pairs");
+const calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const wideMQ = matchMedia("(min-width: 760px) and (min-aspect-ratio: 5/4)");
+let pairs = 8, open = [], miss = null, missTimer = 0, moves = 0, found = 0, lastCard = null, abandon = null, abandonTimer = 0;
+
+try { const n = Number(localStorage.getItem("reef-pairs")); if (COLS[n]) pairs = n; } catch (e) {}
+
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const shuffle = a => { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+const nameOf = t => t.common || t.name;
+const say = html => { statusEl.innerHTML = html; };
+const fishSvg = '<svg viewBox="0 0 64 40" fill="none" stroke="#e8f6fb" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20c10-14 30-16 44 0-14 16-34 14-44 0z"/><path d="M48 20l12-10v20z"/><circle cx="16" cy="18" r="2" fill="#e8f6fb"/></svg>';
+const credit = t => `Photo: <a href="https://www.inaturalist.org/photos/${t.photo_id}" target="_blank" rel="noopener">${esc(t.photographer || "iNaturalist user")}</a> · ${esc(LICENSES[t.license] || t.license)}`;
+
+function inProgress() { return found > 0 && found < pairs; }
+
+function newGame() {
+  clearTimeout(missTimer);
+  clearTimeout(abandonTimer);
+  abandon = null;
+  const picks = shuffle(TAXA.slice()).slice(0, pairs);
+  const deck = shuffle(picks.flatMap(t => [t, t]));
+  picks.forEach(t => { new Image().src = t.photo; });
+  open = []; miss = null; moves = 0; found = 0;
+  updateStats();
+  say(`Each dive is a random ${pairs} of ${TAXA.length} reef animals. Flip two cards to start.`);
+  log.innerHTML = '<span class="hint">Matched animals collect here. Select one, or a matched card, to read its fact again.</span>';
+  showIntro();
+  board.classList.toggle("wide", COLS[pairs] > 4);
+  board.style.setProperty("--ratio", COLS[pairs] / (pairs * 2 / COLS[pairs]));
+  document.querySelectorAll(".levels button").forEach(b => b.setAttribute("aria-pressed", String(Number(b.dataset.pairs) === pairs)));
+  board.innerHTML = "";
+  deck.forEach((t, i) => {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = "card";
+    b.dataset.n = i + 1;
+    b.innerHTML = `<div class="card-inner">
+      <div class="face back">${fishSvg}</div>
+      <div class="face front"><img src="${esc(t.photo)}" alt=""><span class="label"><span>${esc(nameOf(t))}</span></span></div>
+    </div>`;
+    b.querySelector("img").addEventListener("error", e => e.target.parentElement.classList.add("noimg"));
+    b.addEventListener("click", () => flip(b, t));
+    label(b, t, "down");
+    board.appendChild(b);
+  });
+}
+
+function label(card, t, state) {
+  const n = `Card ${card.dataset.n}`;
+  card.setAttribute("aria-label", state === "down" ? `${n}, face down` : state === "up" ? `${n}, ${nameOf(t)}` : `${n}, ${nameOf(t)}, matched. Show its fact`);
+}
+
+// Face-down again after a miss. Also called early when the player taps on before the hold ends.
+function hideMiss() {
+  if (!miss) return;
+  clearTimeout(missTimer);
+  miss.forEach(o => { o.card.classList.remove("flipped", "miss"); label(o.card, o.taxon, "down"); });
+  miss = null;
+}
+
+function flip(card, taxon) {
+  if (card.classList.contains("matched")) { showFact(taxon); return; }
+  if (miss) {
+    const tappedMiss = miss.some(o => o.card === card);
+    hideMiss();
+    if (tappedMiss) return;
+  }
+  if (card.classList.contains("flipped")) return;
+  if (open.length === 0) closeSheet();
+  card.classList.add("flipped");
+  lastCard = card;
+  label(card, taxon, "up");
+  open.push({ card, taxon });
+  if (open.length < 2) { say(`<strong>${esc(nameOf(taxon))}</strong>. Find its pair.`); return; }
+
+  moves++;
+  const [a, b] = open;
+  open = [];
+  if (a.taxon.id === b.taxon.id) {
+    found++;
+    [a, b].forEach(o => { o.card.classList.add("matched"); label(o.card, o.taxon, "matched"); });
+    celebrate([a.card, b.card], nameOf(a.taxon));
+    addToLog(a.taxon);
+    if (found === pairs) {
+      say(`<strong>Reef cleared</strong> in ${moves} moves.`);
+      setTimeout(win, calm ? 0 : 900);
+    } else {
+      say(`<strong>Match: ${esc(nameOf(a.taxon))}.</strong> ${found} of ${pairs} found.`);
+      setTimeout(() => showFact(a.taxon), calm ? 0 : 650);
+    }
+  } else {
+    miss = [a, b];
+    [a, b].forEach(o => o.card.classList.add("miss"));
+    say(`No match: ${esc(nameOf(a.taxon))} and ${esc(nameOf(b.taxon))}.`);
+    missTimer = setTimeout(hideMiss, 1500);
+  }
+  updateStats();
+}
+
+function updateStats() {
+  movesEl.textContent = `${moves} move${moves === 1 ? "" : "s"}`;
+  pairsEl.textContent = found === pairs ? `Cleared in ${moves}` : `${found} of ${pairs} found`;
+}
+
+// Bubbles burst from both cards, a ring ripples out, and the name floats up between them.
+function celebrate(cards, name) {
+  if (calm) return;
+  const centres = cards.map(c => { const r = c.getBoundingClientRect(); return { x: r.left + r.width / 2, y: r.top + r.height / 2, w: r.width }; });
+  setTimeout(() => {
+    centres.forEach(c => {
+      const ring = el("ring", c.x, c.y, 10);
+      ring.animate([{ transform: "translate(-50%,-50%) scale(1)", opacity: .9 }, { transform: `translate(-50%,-50%) scale(${c.w / 5})`, opacity: 0 }],
+        { duration: 700, easing: "cubic-bezier(.2,.7,.3,1)" }).onfinish = () => ring.remove();
+      for (let i = 0; i < 16; i++) bubble(c.x + (Math.random() - .5) * c.w * .6, c.y + (Math.random() - .5) * c.w * .6, 4 + Math.random() * 12, 120 + Math.random() * 180);
+    });
+    const half = Math.min(name.length * 4.5 + 12, innerWidth / 2);
+    const mid = { x: Math.min(Math.max((centres[0].x + centres[1].x) / 2, half), innerWidth - half), y: (centres[0].y + centres[1].y) / 2 };
+    const tag = el("name", mid.x, mid.y);
+    tag.textContent = name;
+    tag.animate([
+      { transform: "translate(-50%,-50%) scale(.6)", opacity: 0 },
+      { transform: "translate(-50%,-80%) scale(1.15)", opacity: 1, offset: .25 },
+      { transform: "translate(-50%,-260%) scale(1)", opacity: 0 }
+    ], { duration: 1600, easing: "ease-out" }).onfinish = () => tag.remove();
+  }, 350);
+}
+
+function bubble(x, y, size, rise) {
+  const b = el("b", x, y, size);
+  const drift = (Math.random() - .5) * 60;
+  b.animate([
+    { transform: "translate(-50%,-50%) scale(.2)", opacity: 0 },
+    { transform: "translate(-50%,-50%) scale(1)", opacity: 1, offset: .15 },
+    { transform: `translate(calc(-50% + ${drift}px), calc(-50% - ${rise}px)) scale(1.1)`, opacity: 0 }
+  ], { duration: 900 + Math.random() * 900, easing: "cubic-bezier(.3,.6,.4,1)" }).onfinish = () => b.remove();
+}
+
+function bubbleStorm() {
+  if (calm) return;
+  for (let i = 0; i < 90; i++) {
+    setTimeout(() => bubble(Math.random() * innerWidth, innerHeight + 20, 6 + Math.random() * 22, innerHeight * (.6 + Math.random() * .5)), i * 25);
+  }
+}
+
+function el(cls, x, y, size) {
+  const d = document.createElement("div");
+  d.className = cls;
+  Object.assign(d.style, { left: `${x}px`, top: `${y}px` }, size ? { width: `${size}px`, height: `${size}px` } : {});
+  fx.appendChild(d);
+  return d;
+}
+
+function addToLog(t) {
+  if (found === 1) log.innerHTML = "";
+  const b = document.createElement("button");
+  b.type = "button";
+  b.innerHTML = `<img src="${esc(t.photo)}" alt="">${esc(nameOf(t))}`;
+  b.addEventListener("click", () => showFact(t));
+  log.appendChild(b);
+}
+
+function openSheet(html) {
+  sheet.innerHTML = `<button class="close" type="button" aria-label="Close facts">×</button>${html}`;
+  sheet.querySelector(".close").addEventListener("click", () => closeSheet(true));
+  sheet.classList.add("open");
+  sheet.inert = false;
+}
+
+// On wide screens the panel sits beside the board, so it only resets when asked to.
+function closeSheet(force) {
+  if (wideMQ.matches) { if (force) showIntro(); return; }
+  const hadFocus = sheet.contains(document.activeElement);
+  sheet.classList.remove("open");
+  sheet.inert = true;
+  if (hadFocus) (lastCard && document.contains(lastCard) ? lastCard : board.firstElementChild)?.focus();
+}
+
+function showIntro() {
+  if (!wideMQ.matches) { sheet.classList.remove("open"); sheet.inert = true; return; }
+  openSheet('<p class="intro">Match a pair and the animal\'s story surfaces here.</p>');
+}
+
+function showFact(t) {
+  openSheet(`<div class="fact">
+    <button class="zoom" type="button" aria-label="Show a bigger photo of ${esc(nameOf(t))}"><img class="photo" src="${esc(t.photo)}" alt=""></button>
+    <div>
+      <h2>${esc(nameOf(t))}</h2>
+      <div class="sci">${esc(t.name)}</div>
+      <p>${esc(t.fact)}</p>
+      <div class="meta">${t.observations.toLocaleString("en")} iNaturalist observations · <a href="https://www.inaturalist.org/taxa/${t.id}" target="_blank" rel="noopener">Species page</a><br>${credit(t)}</div>
+    </div>
+  </div>`);
+  sheet.querySelector(".zoom").addEventListener("click", () => showPhoto(t));
+}
+
+// Opens with the medium photo already in cache, then swaps in the large one once it has loaded.
+function showPhoto(t) {
+  const box = document.getElementById("lightbox");
+  box.innerHTML = `<img src="${esc(t.photo)}" alt="${esc(nameOf(t))}">
+    <div class="cap"><div>
+      <h2>${esc(nameOf(t))}</h2>
+      <div class="sci">${esc(t.name)}</div>
+      <p>${esc(t.fact)}</p>
+      <div class="meta">${t.observations.toLocaleString("en")} iNaturalist observations · <a href="https://www.inaturalist.org/taxa/${t.id}" target="_blank" rel="noopener">Species page</a> · ${credit(t)}</div>
+    </div>
+    <button class="close" type="button" aria-label="Close photo" autofocus>×</button></div>`;
+  const big = new Image();
+  big.onload = () => { const img = box.querySelector("img"); if (img) img.src = big.src; };
+  big.src = t.photo.replace("/medium.", "/large.");
+  box.querySelector(".close").addEventListener("click", () => box.close());
+  box.showModal();
+}
+
+function win() {
+  let best = moves, isBest = true;
+  try {
+    const prev = Number(localStorage.getItem(`reef-best-${pairs}`));
+    if (prev && prev <= moves) { best = prev; isBest = false; }
+    else localStorage.setItem(`reef-best-${pairs}`, moves);
+  } catch (e) {}
+  const next = NEXT[pairs];
+  openSheet(`<div class="won">
+    <h2>Reef cleared</h2>
+    <p>${pairs} pairs in ${moves} moves. A perfect dive is ${pairs}.</p>
+    <p class="meta">${isBest ? "That's your best at this size." : `Your best at ${pairs} pairs: ${best} moves.`}</p>
+    <div class="buttons">
+      <button class="action" type="button" data-go="${pairs}">Dive again</button>
+      <button class="action ghost" type="button" data-go="${next}">${next < pairs ? `Back to ${next} pairs` : `Try ${next} pairs`}</button>
+    </div>
+  </div>`);
+  sheet.querySelectorAll("[data-go]").forEach(b => b.addEventListener("click", () => setLevel(Number(b.dataset.go))));
+  sheet.querySelector("[data-go]").focus();
+  bubbleStorm();
+}
+
+function setLevel(n) {
+  pairs = n;
+  try { localStorage.setItem("reef-pairs", pairs); } catch (e) {}
+  newGame();
+}
+
+function credits() {
+  document.getElementById("credits").innerHTML = TAXA.map(t => `<li>${esc(nameOf(t))}. ${credit(t)}</li>`).join("");
+}
+
+function ambientBubbles() {
+  const host = document.querySelector(".bubbles");
+  for (let i = 0; i < 18; i++) {
+    const s = document.createElement("span");
+    const size = 4 + Math.random() * 14;
+    Object.assign(s.style, { left: `${Math.random() * 100}%`, width: `${size}px`, height: `${size}px`,
+      animationDuration: `${8 + Math.random() * 12}s`, animationDelay: `${-Math.random() * 20}s` });
+    host.appendChild(s);
+  }
+}
+
+// Mid-dive, the first press only asks; a second press on the same control within 4s confirms.
+function confirmAbandon(control) {
+  if (!inProgress() || abandon === control) { clearTimeout(abandonTimer); abandon = null; return true; }
+  abandon = control;
+  say("<strong>Press again to abandon this dive.</strong> Your progress will be lost.");
+  clearTimeout(abandonTimer);
+  abandonTimer = setTimeout(() => { abandon = null; say(`Dive in progress: ${found} of ${pairs} found.`); }, 4000);
+  return false;
+}
+document.querySelectorAll(".levels button").forEach(b => b.addEventListener("click", () => {
+  if (Number(b.dataset.pairs) !== pairs && confirmAbandon(b)) setLevel(Number(b.dataset.pairs));
+}));
+document.getElementById("restart").addEventListener("click", e => { if (confirmAbandon(e.currentTarget)) newGame(); });
+document.addEventListener("keydown", e => { if (e.key === "Escape" && !wideMQ.matches && !document.getElementById("lightbox").open) closeSheet(true); });
+document.getElementById("lightbox").addEventListener("click", e => { if (e.target === e.currentTarget) e.currentTarget.close(); });
+board.addEventListener("keydown", e => {
+  const step = { ArrowLeft: -1, ArrowRight: 1, ArrowUp: -COLS[pairs], ArrowDown: COLS[pairs] }[e.key];
+  if (!step) return;
+  const cards = [...board.children];
+  const next = cards[cards.indexOf(document.activeElement) + step];
+  if (next) { e.preventDefault(); next.focus(); }
+});
+wideMQ.addEventListener("change", () => { if (wideMQ.matches) { if (!sheet.classList.contains("open")) showIntro(); } else closeSheet(); });
+credits();
+ambientBubbles();
+newGame();
+</script>
+</body>
+</html>
