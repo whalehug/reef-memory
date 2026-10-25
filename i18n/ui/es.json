@@ -1,0 +1,87 @@
+{
+  "title": "Reef Memory",
+  "subtitle": {
+    "one": "Un juego de memoria con {count} animal de arrecife fotografiado en iNaturalist.",
+    "many": "Un juego de memoria con {count} de animales de arrecife fotografiados en iNaturalist.",
+    "other": "Un juego de memoria con {count} animales de arrecife fotografiados en iNaturalist."
+  },
+  "language_label": "Idioma",
+  "machine_note": "Esta traducción aún no la ha revisado un hablante nativo.",
+  "pairs_label": "Parejas",
+  "new_dive": "Nueva inmersión",
+  "moves": {
+    "one": "{count} jugada",
+    "many": "{count} de jugadas",
+    "other": "{count} jugadas"
+  },
+  "found": {
+    "one": "{count} de {pairs} encontrada",
+    "many": "{count} de {pairs} encontradas",
+    "other": "{count} de {pairs} encontradas"
+  },
+  "cleared_in": {
+    "one": "Listo en {count} jugada",
+    "many": "Listo en {count} de jugadas",
+    "other": "Listo en {count} jugadas"
+  },
+  "board_label": "Cartas del juego de memoria. Usa las flechas del teclado para moverte entre las cartas.",
+  "card_down": "Carta {n}, boca abajo",
+  "card_up": "Carta {n}, {name}",
+  "card_matched": "Carta {n}, {name}, pareja encontrada. Ver dato curioso",
+  "status_start": {
+    "one": "Cada inmersión trae {pairs} animales de arrecife elegidos al azar entre {count}. Da la vuelta a dos cartas para empezar.",
+    "many": "Cada inmersión trae {pairs} animales de arrecife elegidos al azar entre {count}. Da la vuelta a dos cartas para empezar.",
+    "other": "Cada inmersión trae {pairs} animales de arrecife elegidos al azar entre {count}. Da la vuelta a dos cartas para empezar."
+  },
+  "status_find_pair": "**{name}**. Encuentra su pareja.",
+  "status_match": {
+    "one": "**Pareja: {name}.** {count} de {pairs} encontrada.",
+    "many": "**Pareja: {name}.** {count} de {pairs} encontradas.",
+    "other": "**Pareja: {name}.** {count} de {pairs} encontradas."
+  },
+  "status_miss": "No son pareja: {first} y {second}.",
+  "status_cleared": {
+    "one": "**Arrecife explorado** en {count} jugada.",
+    "many": "**Arrecife explorado** en {count} de jugadas.",
+    "other": "**Arrecife explorado** en {count} jugadas."
+  },
+  "status_abandon": "**Presiona otra vez para abandonar esta inmersión.** Perderás tu progreso.",
+  "status_in_progress": {
+    "one": "Inmersión en curso: {count} de {pairs} encontrada.",
+    "many": "Inmersión en curso: {count} de {pairs} encontradas.",
+    "other": "Inmersión en curso: {count} de {pairs} encontradas."
+  },
+  "facts_label": "Datos curiosos de animales",
+  "close_facts": "Cerrar datos curiosos",
+  "sheet_intro": "Encuentra una pareja y aquí emergerá la historia del animal.",
+  "zoom_label": "Ver foto más grande: {name}",
+  "observations": {
+    "one": "{count} observación en iNaturalist",
+    "many": "{count} de observaciones en iNaturalist",
+    "other": "{count} observaciones en iNaturalist"
+  },
+  "species_page": "Página de la especie",
+  "photo_by": "Foto: {photographer}",
+  "unknown_photographer": "miembro de iNaturalist",
+  "photo_label": "Foto",
+  "close_photo": "Cerrar foto",
+  "won_title": "Arrecife explorado",
+  "won_summary": {
+    "one": "{pairs} parejas en {count} jugada. Una inmersión perfecta son {pairs} jugadas.",
+    "many": "{pairs} parejas en {count} de jugadas. Una inmersión perfecta son {pairs} jugadas.",
+    "other": "{pairs} parejas en {count} jugadas. Una inmersión perfecta son {pairs} jugadas."
+  },
+  "won_best_new": "Es tu récord para este tamaño.",
+  "won_best": {
+    "one": "Tu récord con {pairs} parejas: {count} jugada.",
+    "many": "Tu récord con {pairs} parejas: {count} de jugadas.",
+    "other": "Tu récord con {pairs} parejas: {count} jugadas."
+  },
+  "dive_again": "Otra inmersión",
+  "back_to_pairs": "Volver a {pairs} parejas",
+  "try_pairs": "Probar con {pairs} parejas",
+  "log_title": "Diario de inmersión",
+  "log_hint": "Aquí se reúnen los animales encontrados. Elige uno, o una carta ya emparejada, para volver a leer su dato curioso.",
+  "about_photos": "Sobre las fotos",
+  "about_text": "Las fotos y los recuentos de observaciones vienen de los datos abiertos de {inaturalist}. Cada foto conserva su propia licencia; el enlace del crédito lleva a la página de la foto."
+}

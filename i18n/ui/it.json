@@ -1,0 +1,87 @@
+{
+  "title": "Reef Memory",
+  "subtitle": {
+    "one": "Un memory con {count} animale della barriera fotografato su iNaturalist.",
+    "many": "Un memory con {count} di animali della barriera fotografati su iNaturalist.",
+    "other": "Un memory con {count} animali della barriera fotografati su iNaturalist."
+  },
+  "language_label": "Lingua",
+  "machine_note": "Questa traduzione non è ancora stata rivista da un madrelingua.",
+  "pairs_label": "Coppie",
+  "new_dive": "Nuova immersione",
+  "moves": {
+    "one": "{count} mossa",
+    "many": "{count} di mosse",
+    "other": "{count} mosse"
+  },
+  "found": {
+    "one": "{count} su {pairs} trovata",
+    "many": "{count} su {pairs} trovate",
+    "other": "{count} su {pairs} trovate"
+  },
+  "cleared_in": {
+    "one": "Finito in {count} mossa",
+    "many": "Finito in {count} di mosse",
+    "other": "Finito in {count} mosse"
+  },
+  "board_label": "Carte del memory. Usa le frecce per spostarti tra le carte.",
+  "card_down": "Carta {n}, coperta",
+  "card_up": "Carta {n}, {name}",
+  "card_matched": "Carta {n}, {name}, coppia trovata. Mostra la curiosità",
+  "status_start": {
+    "one": "Ogni immersione pesca a caso {pairs} animali della barriera su {count}. Gira due carte per iniziare.",
+    "many": "Ogni immersione pesca a caso {pairs} animali della barriera su {count}. Gira due carte per iniziare.",
+    "other": "Ogni immersione pesca a caso {pairs} animali della barriera su {count}. Gira due carte per iniziare."
+  },
+  "status_find_pair": "**{name}**. Trova la sua gemella.",
+  "status_match": {
+    "one": "**Coppia: {name}.** {count} su {pairs} trovata.",
+    "many": "**Coppia: {name}.** {count} su {pairs} trovate.",
+    "other": "**Coppia: {name}.** {count} su {pairs} trovate."
+  },
+  "status_miss": "Non fanno coppia: {first} e {second}.",
+  "status_cleared": {
+    "one": "**Barriera esplorata** in {count} mossa.",
+    "many": "**Barriera esplorata** in {count} di mosse.",
+    "other": "**Barriera esplorata** in {count} mosse."
+  },
+  "status_abandon": "**Premi di nuovo per abbandonare questa immersione.** I progressi andranno persi.",
+  "status_in_progress": {
+    "one": "Immersione in corso: {count} su {pairs} trovata.",
+    "many": "Immersione in corso: {count} su {pairs} trovate.",
+    "other": "Immersione in corso: {count} su {pairs} trovate."
+  },
+  "facts_label": "Curiosità sugli animali",
+  "close_facts": "Chiudi curiosità",
+  "sheet_intro": "Trova una coppia e la storia dell’animale affiorerà qui.",
+  "zoom_label": "Ingrandisci la foto: {name}",
+  "observations": {
+    "one": "{count} osservazione su iNaturalist",
+    "many": "{count} di osservazioni su iNaturalist",
+    "other": "{count} osservazioni su iNaturalist"
+  },
+  "species_page": "Pagina della specie",
+  "photo_by": "Foto: {photographer}",
+  "unknown_photographer": "utente di iNaturalist",
+  "photo_label": "Foto",
+  "close_photo": "Chiudi foto",
+  "won_title": "Barriera esplorata",
+  "won_summary": {
+    "one": "{pairs} coppie in {count} mossa. Un’immersione perfetta è di {pairs} mosse.",
+    "many": "{pairs} coppie in {count} di mosse. Un’immersione perfetta è di {pairs} mosse.",
+    "other": "{pairs} coppie in {count} mosse. Un’immersione perfetta è di {pairs} mosse."
+  },
+  "won_best_new": "È il tuo record con questo numero di coppie.",
+  "won_best": {
+    "one": "Il tuo record con {pairs} coppie: {count} mossa.",
+    "many": "Il tuo record con {pairs} coppie: {count} di mosse.",
+    "other": "Il tuo record con {pairs} coppie: {count} mosse."
+  },
+  "dive_again": "Un’altra immersione",
+  "back_to_pairs": "Torna a {pairs} coppie",
+  "try_pairs": "Prova con {pairs} coppie",
+  "log_title": "Diario d’immersione",
+  "log_hint": "Qui si raccolgono gli animali trovati. Scegline uno, o una carta già abbinata, per rileggere la sua curiosità.",
+  "about_photos": "Informazioni sulle foto",
+  "about_text": "Le foto e i conteggi delle osservazioni provengono dai dati aperti di {inaturalist}. Ogni foto ha la sua licenza: segui il link dell’autore per vedere la pagina della foto."
+}

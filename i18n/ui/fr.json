@@ -1,0 +1,87 @@
+{
+  "title": "Reef Memory",
+  "subtitle": {
+    "one": "Un memory avec {count} animal du récif photographié sur iNaturalist.",
+    "many": "Un memory avec {count} d’animaux du récif photographiés sur iNaturalist.",
+    "other": "Un memory avec {count} animaux du récif photographiés sur iNaturalist."
+  },
+  "language_label": "Langue",
+  "machine_note": "Cette traduction n’a pas encore été relue par un locuteur natif.",
+  "pairs_label": "Paires",
+  "new_dive": "Nouvelle plongée",
+  "moves": {
+    "one": "{count} coup",
+    "many": "{count} de coups",
+    "other": "{count} coups"
+  },
+  "found": {
+    "one": "{count} sur {pairs} trouvée",
+    "many": "{count} sur {pairs} trouvées",
+    "other": "{count} sur {pairs} trouvées"
+  },
+  "cleared_in": {
+    "one": "Terminé en {count} coup",
+    "many": "Terminé en {count} de coups",
+    "other": "Terminé en {count} coups"
+  },
+  "board_label": "Cartes du jeu de mémoire. Les flèches du clavier passent d’une carte à l’autre.",
+  "card_down": "Carte {n}, face cachée",
+  "card_up": "Carte {n}, {name}",
+  "card_matched": "Carte {n}, {name}, paire trouvée. Voir l’anecdote",
+  "status_start": {
+    "one": "Chaque plongée tire au hasard {pairs} animaux du récif parmi {count}. Retourne deux cartes pour commencer.",
+    "many": "Chaque plongée tire au hasard {pairs} animaux du récif parmi {count}. Retourne deux cartes pour commencer.",
+    "other": "Chaque plongée tire au hasard {pairs} animaux du récif parmi {count}. Retourne deux cartes pour commencer."
+  },
+  "status_find_pair": "**{name}**. Trouve sa paire.",
+  "status_match": {
+    "one": "**Paire : {name}.** {count} sur {pairs} trouvée.",
+    "many": "**Paire : {name}.** {count} sur {pairs} trouvées.",
+    "other": "**Paire : {name}.** {count} sur {pairs} trouvées."
+  },
+  "status_miss": "Pas de paire : {first} et {second}.",
+  "status_cleared": {
+    "one": "**Récif exploré** en {count} coup.",
+    "many": "**Récif exploré** en {count} de coups.",
+    "other": "**Récif exploré** en {count} coups."
+  },
+  "status_abandon": "**Appuie à nouveau pour abandonner cette plongée.** Ta progression sera perdue.",
+  "status_in_progress": {
+    "one": "Plongée en cours : {count} sur {pairs} trouvée.",
+    "many": "Plongée en cours : {count} sur {pairs} trouvées.",
+    "other": "Plongée en cours : {count} sur {pairs} trouvées."
+  },
+  "facts_label": "Anecdotes sur les animaux",
+  "close_facts": "Fermer les anecdotes",
+  "sheet_intro": "Trouve une paire et l’histoire de l’animal remontera ici.",
+  "zoom_label": "Agrandir la photo : {name}",
+  "observations": {
+    "one": "{count} observation sur iNaturalist",
+    "many": "{count} d’observations sur iNaturalist",
+    "other": "{count} observations sur iNaturalist"
+  },
+  "species_page": "Fiche de l’espèce",
+  "photo_by": "Photo : {photographer}",
+  "unknown_photographer": "membre d’iNaturalist",
+  "photo_label": "Photo",
+  "close_photo": "Fermer la photo",
+  "won_title": "Récif exploré",
+  "won_summary": {
+    "one": "{pairs} paires en {count} coup. Une plongée parfaite, c’est {pairs} coups.",
+    "many": "{pairs} paires en {count} de coups. Une plongée parfaite, c’est {pairs} coups.",
+    "other": "{pairs} paires en {count} coups. Une plongée parfaite, c’est {pairs} coups."
+  },
+  "won_best_new": "C’est ton record pour ce nombre de paires.",
+  "won_best": {
+    "one": "Ton record avec {pairs} paires : {count} coup.",
+    "many": "Ton record avec {pairs} paires : {count} de coups.",
+    "other": "Ton record avec {pairs} paires : {count} coups."
+  },
+  "dive_again": "Replonger",
+  "back_to_pairs": "Revenir à {pairs} paires",
+  "try_pairs": "Passer à {pairs} paires",
+  "log_title": "Carnet de plongée",
+  "log_hint": "Les animaux trouvés s’affichent ici. Choisis-en un, ou une carte trouvée, pour relire son anecdote.",
+  "about_photos": "À propos des photos",
+  "about_text": "Les photos et le nombre d’observations proviennent des données ouvertes d’{inaturalist}. Chaque photo garde sa propre licence : clique sur un crédit pour voir la page de la photo."
+}

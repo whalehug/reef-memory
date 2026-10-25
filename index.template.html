@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Reef Memory</title>
+<title>__TITLE__</title>
 <meta name="description" content="A memory game with __COUNT__ reef animals photographed by iNaturalist divers and naturalists.">
 <style>
   :root {
@@ -42,13 +42,16 @@
   header { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 10px 16px; }
   h1 { margin: 0; font-size: clamp(1.6rem, 5vw, 2.3rem); letter-spacing: -.02em; }
   .sub { margin: 4px 0 0; font-size: .92rem; color: var(--foam); opacity: .9; }
+  .brand { display: flex; align-items: center; gap: 6px 12px; flex-wrap: wrap; }
+  .lang { font: inherit; font-size: .8rem; color: var(--foam); background: rgba(4, 35, 58, .6); color-scheme: dark; border: 1px solid rgba(232, 246, 251, .3); border-radius: 999px; padding: 4px 8px; max-width: 9.5em; cursor: pointer; }
+  .note { margin: 4px 0 0; font-size: .72rem; color: var(--muted); }
   .controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
   .levels-wrap { display: inline-flex; align-items: center; gap: 6px; }
   .levels-label { font-size: .85rem; color: var(--muted); }
   .levels { display: inline-flex; border-radius: 999px; overflow: hidden; border: 1px solid rgba(232, 246, 251, .3); }
   .levels button { font: inherit; font-size: .85rem; border: 0; padding: 6px 12px; background: rgba(4, 35, 58, .6); color: var(--foam); cursor: pointer; }
   .levels button[aria-pressed="true"] { background: var(--foam); color: var(--deep); font-weight: 700; }
-  .pills { display: inline-flex; gap: 8px; }
+  .pills { display: inline-flex; flex-wrap: wrap; gap: 8px; }
   .pill { background: rgba(4, 35, 58, .6); border: 1px solid rgba(232, 246, 251, .18); border-radius: 999px; padding: 6px 12px; font-variant-numeric: tabular-nums; font-size: .88rem; white-space: nowrap; }
   button.action {
     font: inherit; font-size: .9rem; cursor: pointer; border: 0; border-radius: 999px; padding: 7px 14px;
@@ -85,7 +88,7 @@
   .front img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .front .label {
     position: absolute; left: 0; right: 0; bottom: 0; padding: 18px 7px 6px; font-size: 12px; line-height: 1.2;
-    background: linear-gradient(transparent, rgba(4,35,58,.92)); text-align: left; color: var(--foam);
+    background: linear-gradient(transparent, rgba(4,35,58,.92)); text-align: start; color: var(--foam);
   }
   .front .label span { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; hyphens: auto; }
   .front.noimg { display: grid; place-items: center; background: linear-gradient(160deg, var(--kelp), #1f7d68); }
@@ -121,12 +124,12 @@
   .sheet.open { transform: translate(-50%, 0); }
   .sheet .fact { display: grid; grid-template-columns: 104px 1fr; gap: 14px; align-items: start; }
   .sheet img.photo { width: 104px; height: 104px; object-fit: cover; border-radius: 10px; }
-  .sheet h2 { margin: 0; font-size: 1.15rem; padding-right: 40px; }
+  .sheet h2 { margin: 0; font-size: 1.15rem; padding-inline-end: 40px; }
   .sheet .sci { font-style: italic; color: var(--muted); font-size: .88rem; }
   .sheet p { margin: 6px 0; line-height: 1.45; }
   .sheet .meta { font-size: .76rem; color: var(--muted); line-height: 1.5; }
   .sheet a { color: var(--sand); }
-  .sheet .close { position: absolute; top: 6px; right: 6px; width: 36px; height: 36px; border-radius: 50%; border: 0; background: rgba(232,246,251,.12); color: var(--ink); font-size: 1.2rem; cursor: pointer; }
+  .sheet .close { position: absolute; top: 6px; inset-inline-end: 6px; width: 36px; height: 36px; border-radius: 50%; border: 0; background: rgba(232,246,251,.12); color: var(--ink); font-size: 1.2rem; cursor: pointer; }
   .sheet .intro { color: var(--muted); margin: 0; line-height: 1.5; }
   .zoom { position: relative; display: block; padding: 0; border: 0; background: none; border-radius: 10px; cursor: zoom-in; }
   .zoom::after { content: ""; position: absolute; right: 6px; bottom: 6px; width: 26px; height: 26px; border-radius: 50%; background: rgba(4,35,58,.75) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23e8f6fb' stroke-width='2.4' stroke-linecap='round'%3E%3Ccircle cx='10.5' cy='10.5' r='6'/%3E%3Cpath d='M15 15l5 5M10.5 8v5M8 10.5h5'/%3E%3C/svg%3E") center / 16px no-repeat; }
@@ -145,7 +148,7 @@
 
   details { margin-top: 28px; font-size: .78rem; color: var(--muted); }
   details summary { cursor: pointer; }
-  details ul { padding-left: 18px; columns: 2 260px; }
+  details ul { padding-inline-start: 18px; columns: 2 260px; }
   details a { color: var(--muted); }
 
   /* Wide, landscape-shaped screens: the fact panel docks beside the board. Portrait windows give the board the full width. */
@@ -159,11 +162,13 @@
     .sheet .zoom { width: 100%; }
     .sheet img.photo { width: 100%; height: 180px; }
     .sheet .close { display: none; }
-    .sheet h2 { padding-right: 0; }
+    .sheet h2 { padding-inline-end: 0; }
   }
   @media (max-width: 560px) {
     main { padding-top: 16px; }
     .sub { display: none; }
+    header > div:first-child { width: 100%; }
+    .brand { justify-content: space-between; flex-wrap: nowrap; }
     .controls { width: 100%; }
     .pills { width: 100%; }
     h1 { font-size: 1.5rem; }
@@ -184,7 +189,8 @@
   @media (pointer: coarse) {
     .levels button, .log button, button.action { min-height: 44px; }
     .levels button { min-width: 44px; }
-    .sheet .close { width: 44px; height: 44px; top: 2px; right: 2px; }
+    .sheet .close { width: 44px; height: 44px; top: 2px; inset-inline-end: 2px; }
+    .lang { min-height: 36px; }
   }
   @media (prefers-reduced-motion: reduce) {
     .bubbles, .fx { display: none; }
@@ -199,22 +205,26 @@
 <main>
   <header>
     <div>
-      <h1>Reef Memory</h1>
-      <p class="sub">A memory game with __COUNT__ reef animals photographed on iNaturalist.</p>
+      <div class="brand">
+        <h1 data-i18n="title"></h1>
+        <select class="lang" id="lang" data-i18n-label="language_label"></select>
+      </div>
+      <p class="sub" id="subtitle"></p>
+      <p class="note" id="machine-note" data-i18n="machine_note" hidden></p>
     </div>
     <div class="controls">
       <div class="levels-wrap">
-        <span class="levels-label" id="levels-label">Pairs</span>
+        <span class="levels-label" id="levels-label" data-i18n="pairs_label"></span>
         <div class="levels" role="group" aria-labelledby="levels-label">
           <button type="button" data-pairs="8" aria-pressed="true">8</button>
           <button type="button" data-pairs="12" aria-pressed="false">12</button>
           <button type="button" data-pairs="18" aria-pressed="false">18</button>
         </div>
       </div>
-      <button class="action" id="restart" type="button">New dive</button>
+      <button class="action" id="restart" type="button" data-i18n="new_dive"></button>
       <div class="pills">
-        <span class="pill" id="moves">0 moves</span>
-        <span class="pill" id="pairs">0 of 8 found</span>
+        <span class="pill" id="moves"></span>
+        <span class="pill" id="pairs"></span>
       </div>
     </div>
   </header>
@@ -222,30 +232,33 @@
   <p class="status" id="status" role="status"></p>
 
   <div class="game">
-    <div class="board" id="board" role="group" aria-label="Memory cards. Arrow keys move between cards."></div>
+    <div class="board" id="board" role="group" data-i18n-label="board_label"></div>
     <aside class="side">
-      <section class="sheet" id="sheet" aria-label="Animal facts"></section>
-<dialog class="lightbox" id="lightbox" aria-label="Photo"></dialog>
+      <section class="sheet" id="sheet" data-i18n-label="facts_label"></section>
+      <dialog class="lightbox" id="lightbox" data-i18n-label="photo_label"></dialog>
       <section class="log-wrap" aria-labelledby="log-title">
-        <h2 class="log-title" id="log-title">Dive log</h2>
+        <h2 class="log-title" id="log-title" data-i18n="log_title"></h2>
         <div class="log" id="log"></div>
       </section>
     </aside>
   </div>
 
   <details>
-    <summary>About the photos</summary>
-    <p>Photos and observation counts come from <a href="https://www.inaturalist.org/">iNaturalist</a> open data. Each photo keeps its own license; follow a credit to see its photo page.</p>
+    <summary data-i18n="about_photos"></summary>
+    <p id="about"></p>
     <ul id="credits"></ul>
   </details>
 </main>
 
 <script>
 const TAXA = __TAXA__;
+const LANGS = __LANGS__;
+const EN = { ui: __UI__, names: {}, facts: {} };
 
 const LICENSES = { "cc0": "CC0", "cc-by": "CC BY", "cc-by-sa": "CC BY-SA", "cc-by-nc": "CC BY-NC", "cc-by-nc-sa": "CC BY-NC-SA" };
 const COLS = { 8: 4, 12: 6, 18: 6 };
 const NEXT = { 8: 12, 12: 18, 18: 8 };
+const INAT_LINK = '<a href="https://www.inaturalist.org/">iNaturalist</a>';
 
 const board = document.getElementById("board");
 const sheet = document.getElementById("sheet");
@@ -254,18 +267,31 @@ const statusEl = document.getElementById("status");
 const fx = document.querySelector(".fx");
 const movesEl = document.getElementById("moves");
 const pairsEl = document.getElementById("pairs");
+const picker = document.getElementById("lang");
+const lightbox = document.getElementById("lightbox");
 const calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
 const wideMQ = matchMedia("(min-width: 760px) and (min-aspect-ratio: 5/4)");
-let pairs = 8, open = [], miss = null, missTimer = 0, moves = 0, found = 0, lastCard = null, abandon = null, abandonTimer = 0;
+let pairs = 8, deck = [], logged = [], open = [], miss = null, missTimer = 0, moves = 0, found = 0, lastCard = null, abandon = null, abandonTimer = 0;
+// Text that follows the language: each view re-renders itself when the language changes.
+let pack = EN, packs = { en: EN }, numFmt, plurals, langRequest = 0, statusView = null, sheetView = null, photoTaxon = null, won = null;
 
 try { const n = Number(localStorage.getItem("reef-pairs")); if (COLS[n]) pairs = n; } catch (e) {}
 
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const shuffle = a => { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
-const nameOf = t => t.common || t.name;
-const say = html => { statusEl.innerHTML = html; };
+const num = v => typeof v === "number" ? numFmt.format(v) : v;
+// A missing key falls back to English; a plural object picks its form from params.count.
+const phrase = (key, params) => { const s = pack.ui[key] ?? EN.ui[key]; return typeof s === "string" ? s : s[plurals.select(params.count)] ?? s.other; };
+const text = (key, params = {}) => phrase(key, params).replace(/\*\*/g, "").replace(/\{(\w+)\}/g, (m, k) => k in params ? num(params[k]) : m);
+// HTML version: **bold** becomes <strong>, params are escaped, raw values are trusted markup.
+const rich = (key, params = {}, raw = {}) => esc(phrase(key, params)).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+  .replace(/\{(\w+)\}/g, (m, k) => k in raw ? raw[k] : k in params ? esc(num(params[k])) : m);
+const nameOf = t => pack.names[t.q] || t.common || t.name;
+const factOf = t => pack.facts[t.q] ? `<p>${esc(pack.facts[t.q])}</p>` : `<p${pack === EN ? "" : ' lang="en"'}>${esc(t.fact)}</p>`;
+const say = view => { statusView = view; statusEl.innerHTML = view(); };
 const fishSvg = '<svg viewBox="0 0 64 40" fill="none" stroke="#e8f6fb" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20c10-14 30-16 44 0-14 16-34 14-44 0z"/><path d="M48 20l12-10v20z"/><circle cx="16" cy="18" r="2" fill="#e8f6fb"/></svg>';
-const credit = t => `Photo: <a href="https://www.inaturalist.org/photos/${t.photo_id}" target="_blank" rel="noopener">${esc(t.photographer || "iNaturalist user")}</a> · ${esc(LICENSES[t.license] || t.license)}`;
+const credit = t => `${rich("photo_by", {}, { photographer: `<a href="https://www.inaturalist.org/photos/${t.photo_id}" target="_blank" rel="noopener">${esc(t.photographer || text("unknown_photographer"))}</a>` })} · ${esc(LICENSES[t.license] || t.license)}`;
+const meta = t => `${rich("observations", { count: t.observations })} · <a href="https://www.inaturalist.org/taxa/${t.id}" target="_blank" rel="noopener">${esc(text("species_page"))}</a>`;
 
 function inProgress() { return found > 0 && found < pairs; }
 
@@ -274,12 +300,12 @@ function newGame() {
   clearTimeout(abandonTimer);
   abandon = null;
   const picks = shuffle(TAXA.slice()).slice(0, pairs);
-  const deck = shuffle(picks.flatMap(t => [t, t]));
+  deck = shuffle(picks.flatMap(t => [t, t]));
   picks.forEach(t => { new Image().src = t.photo; });
-  open = []; miss = null; moves = 0; found = 0;
+  open = []; miss = null; moves = 0; found = 0; logged = [];
   updateStats();
-  say(`Each dive is a random ${pairs} of ${TAXA.length} reef animals. Flip two cards to start.`);
-  log.innerHTML = '<span class="hint">Matched animals collect here. Select one, or a matched card, to read its fact again.</span>';
+  say(() => rich("status_start", { pairs, count: TAXA.length }));
+  renderLog();
   showIntro();
   board.classList.toggle("wide", COLS[pairs] > 4);
   board.style.setProperty("--ratio", COLS[pairs] / (pairs * 2 / COLS[pairs]));
@@ -296,21 +322,21 @@ function newGame() {
     </div>`;
     b.querySelector("img").addEventListener("error", e => e.target.parentElement.classList.add("noimg"));
     b.addEventListener("click", () => flip(b, t));
-    label(b, t, "down");
+    label(b, "down");
     board.appendChild(b);
   });
 }
 
-function label(card, t, state) {
-  const n = `Card ${card.dataset.n}`;
-  card.setAttribute("aria-label", state === "down" ? `${n}, face down` : state === "up" ? `${n}, ${nameOf(t)}` : `${n}, ${nameOf(t)}, matched. Show its fact`);
+function label(card, state) {
+  card.dataset.state = state;
+  card.setAttribute("aria-label", text(`card_${state}`, { n: Number(card.dataset.n), name: nameOf(deck[card.dataset.n - 1]) }));
 }
 
 // Face-down again after a miss. Also called early when the player taps on before the hold ends.
 function hideMiss() {
   if (!miss) return;
   clearTimeout(missTimer);
-  miss.forEach(o => { o.card.classList.remove("flipped", "miss"); label(o.card, o.taxon, "down"); });
+  miss.forEach(o => { o.card.classList.remove("flipped", "miss"); label(o.card, "down"); });
   miss = null;
 }
 
@@ -325,37 +351,38 @@ function flip(card, taxon) {
   if (open.length === 0) closeSheet();
   card.classList.add("flipped");
   lastCard = card;
-  label(card, taxon, "up");
+  label(card, "up");
   open.push({ card, taxon });
-  if (open.length < 2) { say(`<strong>${esc(nameOf(taxon))}</strong>. Find its pair.`); return; }
+  if (open.length < 2) { say(() => rich("status_find_pair", { name: nameOf(taxon) })); return; }
 
   moves++;
   const [a, b] = open;
+  const m = moves;
   open = [];
   if (a.taxon.id === b.taxon.id) {
-    found++;
-    [a, b].forEach(o => { o.card.classList.add("matched"); label(o.card, o.taxon, "matched"); });
+    const f = ++found;
+    [a, b].forEach(o => { o.card.classList.add("matched"); label(o.card, "matched"); });
     celebrate([a.card, b.card], nameOf(a.taxon));
     addToLog(a.taxon);
     if (found === pairs) {
-      say(`<strong>Reef cleared</strong> in ${moves} moves.`);
+      say(() => rich("status_cleared", { count: m }));
       setTimeout(win, calm ? 0 : 900);
     } else {
-      say(`<strong>Match: ${esc(nameOf(a.taxon))}.</strong> ${found} of ${pairs} found.`);
+      say(() => rich("status_match", { name: nameOf(a.taxon), count: f, pairs }));
       setTimeout(() => showFact(a.taxon), calm ? 0 : 650);
     }
   } else {
     miss = [a, b];
     [a, b].forEach(o => o.card.classList.add("miss"));
-    say(`No match: ${esc(nameOf(a.taxon))} and ${esc(nameOf(b.taxon))}.`);
+    say(() => rich("status_miss", { first: nameOf(a.taxon), second: nameOf(b.taxon) }));
     missTimer = setTimeout(hideMiss, 1500);
   }
   updateStats();
 }
 
 function updateStats() {
-  movesEl.textContent = `${moves} move${moves === 1 ? "" : "s"}`;
-  pairsEl.textContent = found === pairs ? `Cleared in ${moves}` : `${found} of ${pairs} found`;
+  movesEl.textContent = text("moves", { count: moves });
+  pairsEl.textContent = found === pairs ? text("cleared_in", { count: moves }) : text("found", { count: found, pairs });
 }
 
 // Bubbles burst from both cards, a ring ripples out, and the name floats up between them.
@@ -407,16 +434,24 @@ function el(cls, x, y, size) {
 }
 
 function addToLog(t) {
-  if (found === 1) log.innerHTML = "";
-  const b = document.createElement("button");
-  b.type = "button";
-  b.innerHTML = `<img src="${esc(t.photo)}" alt="">${esc(nameOf(t))}`;
-  b.addEventListener("click", () => showFact(t));
-  log.appendChild(b);
+  logged.push(t);
+  renderLog();
 }
 
-function openSheet(html) {
-  sheet.innerHTML = `<button class="close" type="button" aria-label="Close facts">×</button>${html}`;
+function renderLog() {
+  log.innerHTML = logged.length ? "" : `<span class="hint">${esc(text("log_hint"))}</span>`;
+  logged.forEach(t => {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.innerHTML = `<img src="${esc(t.photo)}" alt="">${esc(nameOf(t))}`;
+    b.addEventListener("click", () => showFact(t));
+    log.appendChild(b);
+  });
+}
+
+function openSheet(html, view) {
+  sheetView = view;
+  sheet.innerHTML = `<button class="close" type="button" aria-label="${esc(text("close_facts"))}">×</button>${html}`;
   sheet.querySelector(".close").addEventListener("click", () => closeSheet(true));
   sheet.classList.add("open");
   sheet.inert = false;
@@ -433,38 +468,45 @@ function closeSheet(force) {
 
 function showIntro() {
   if (!wideMQ.matches) { sheet.classList.remove("open"); sheet.inert = true; return; }
-  openSheet('<p class="intro">Match a pair and the animal\'s story surfaces here.</p>');
+  openSheet(`<p class="intro">${esc(text("sheet_intro"))}</p>`, showIntro);
 }
 
 function showFact(t) {
   openSheet(`<div class="fact">
-    <button class="zoom" type="button" aria-label="Show a bigger photo of ${esc(nameOf(t))}"><img class="photo" src="${esc(t.photo)}" alt=""></button>
+    <button class="zoom" type="button" aria-label="${esc(text("zoom_label", { name: nameOf(t) }))}"><img class="photo" src="${esc(t.photo)}" alt=""></button>
     <div>
       <h2>${esc(nameOf(t))}</h2>
       <div class="sci">${esc(t.name)}</div>
-      <p>${esc(t.fact)}</p>
-      <div class="meta">${t.observations.toLocaleString("en")} iNaturalist observations · <a href="https://www.inaturalist.org/taxa/${t.id}" target="_blank" rel="noopener">Species page</a><br>${credit(t)}</div>
+      ${factOf(t)}
+      <div class="meta">${meta(t)}<br>${credit(t)}</div>
     </div>
-  </div>`);
+  </div>`, () => showFact(t));
   sheet.querySelector(".zoom").addEventListener("click", () => showPhoto(t));
 }
 
 // Opens with the medium photo already in cache, then swaps in the large one once it has loaded.
 function showPhoto(t) {
-  const box = document.getElementById("lightbox");
-  box.innerHTML = `<img src="${esc(t.photo)}" alt="${esc(nameOf(t))}">
-    <div class="cap"><div>
+  photoTaxon = t;
+  lightbox.innerHTML = `<img src="${esc(t.photo)}" alt=""><div class="cap"></div>`;
+  renderPhoto();
+  const big = new Image();
+  big.onload = () => { const img = lightbox.querySelector("img"); if (img) img.src = big.src; };
+  big.src = t.photo.replace("/medium.", "/large.");
+  lightbox.showModal();
+  lightbox.querySelector(".close").focus();
+}
+
+function renderPhoto() {
+  const t = photoTaxon;
+  lightbox.querySelector("img").alt = nameOf(t);
+  lightbox.querySelector(".cap").innerHTML = `<div>
       <h2>${esc(nameOf(t))}</h2>
       <div class="sci">${esc(t.name)}</div>
-      <p>${esc(t.fact)}</p>
-      <div class="meta">${t.observations.toLocaleString("en")} iNaturalist observations · <a href="https://www.inaturalist.org/taxa/${t.id}" target="_blank" rel="noopener">Species page</a> · ${credit(t)}</div>
+      ${factOf(t)}
+      <div class="meta">${meta(t)} · ${credit(t)}</div>
     </div>
-    <button class="close" type="button" aria-label="Close photo" autofocus>×</button></div>`;
-  const big = new Image();
-  big.onload = () => { const img = box.querySelector("img"); if (img) img.src = big.src; };
-  big.src = t.photo.replace("/medium.", "/large.");
-  box.querySelector(".close").addEventListener("click", () => box.close());
-  box.showModal();
+    <button class="close" type="button" aria-label="${esc(text("close_photo"))}">×</button>`;
+  lightbox.querySelector(".close").addEventListener("click", () => lightbox.close());
 }
 
 function win() {
@@ -474,19 +516,24 @@ function win() {
     if (prev && prev <= moves) { best = prev; isBest = false; }
     else localStorage.setItem(`reef-best-${pairs}`, moves);
   } catch (e) {}
-  const next = NEXT[pairs];
-  openSheet(`<div class="won">
-    <h2>Reef cleared</h2>
-    <p>${pairs} pairs in ${moves} moves. A perfect dive is ${pairs}.</p>
-    <p class="meta">${isBest ? "That's your best at this size." : `Your best at ${pairs} pairs: ${best} moves.`}</p>
-    <div class="buttons">
-      <button class="action" type="button" data-go="${pairs}">Dive again</button>
-      <button class="action ghost" type="button" data-go="${next}">${next < pairs ? `Back to ${next} pairs` : `Try ${next} pairs`}</button>
-    </div>
-  </div>`);
-  sheet.querySelectorAll("[data-go]").forEach(b => b.addEventListener("click", () => setLevel(Number(b.dataset.go))));
+  won = { best, isBest };
+  renderWon();
   sheet.querySelector("[data-go]").focus();
   bubbleStorm();
+}
+
+function renderWon() {
+  const next = NEXT[pairs];
+  openSheet(`<div class="won">
+    <h2>${esc(text("won_title"))}</h2>
+    <p>${rich("won_summary", { pairs, count: moves })}</p>
+    <p class="meta">${won.isBest ? esc(text("won_best_new")) : rich("won_best", { pairs, count: won.best })}</p>
+    <div class="buttons">
+      <button class="action" type="button" data-go="${pairs}">${esc(text("dive_again"))}</button>
+      <button class="action ghost" type="button" data-go="${next}">${esc(text(next < pairs ? "back_to_pairs" : "try_pairs", { pairs: next }))}</button>
+    </div>
+  </div>`, renderWon);
+  sheet.querySelectorAll("[data-go]").forEach(b => b.addEventListener("click", () => setLevel(Number(b.dataset.go))));
 }
 
 function setLevel(n) {
@@ -510,21 +557,92 @@ function ambientBubbles() {
   }
 }
 
+// Re-renders a container and puts focus back on the same control if one inside it had focus.
+function keepFocus(box, render) {
+  const controls = () => [...box.querySelectorAll("button, a")];
+  const i = controls().indexOf(document.activeElement);
+  render();
+  if (i >= 0) controls()[i]?.focus();
+}
+
+// Swaps every piece of text to the loaded language; the board, its order and the game state stay as they are.
+function applyLang(code) {
+  const info = LANGS.find(l => l.code === code);
+  pack = packs[code];
+  numFmt = new Intl.NumberFormat(code);
+  plurals = new Intl.PluralRules(code);
+  document.documentElement.lang = code;
+  document.documentElement.dir = info.dir;
+  picker.value = code;
+  document.title = text("title");
+  document.querySelectorAll("[data-i18n]").forEach(e => { e.textContent = text(e.dataset.i18n); });
+  document.querySelectorAll("[data-i18n-label]").forEach(e => e.setAttribute("aria-label", text(e.dataset.i18nLabel)));
+  document.getElementById("subtitle").textContent = text("subtitle", { count: TAXA.length });
+  document.getElementById("about").innerHTML = rich("about_text", {}, { inaturalist: INAT_LINK });
+  document.getElementById("machine-note").hidden = info.reviewed;
+  if (info.reviewed) picker.removeAttribute("aria-describedby"); else picker.setAttribute("aria-describedby", "machine-note");
+  document.querySelectorAll(".levels button").forEach(b => { b.textContent = num(Number(b.dataset.pairs)); });
+  credits();
+  if (!deck.length) return;
+  updateStats();
+  if (statusView) statusEl.innerHTML = statusView();
+  [...board.children].forEach(card => { card.querySelector(".label span").textContent = nameOf(deck[card.dataset.n - 1]); label(card, card.dataset.state); });
+  keepFocus(log, renderLog);
+  if (sheet.classList.contains("open") && sheetView) keepFocus(sheet, sheetView);
+  if (lightbox.open) keepFocus(lightbox, renderPhoto);
+}
+
+// English stays on screen while a language loads; if it can't load, the page stays in English.
+async function useLang(code) {
+  const request = ++langRequest;
+  if (!packs[code]) {
+    try {
+      const res = await fetch(`i18n/${code}.json`);
+      if (!res.ok) throw new Error(res.status);
+      packs[code] = { names: {}, facts: {}, ...await res.json() };
+    } catch (e) { code = "en"; }
+  }
+  if (request === langRequest) applyLang(code);
+}
+
+// ?lang= wins, then the saved choice, then the browser's languages; "pt-BR" falls back to "pt".
+function initialLang() {
+  let saved = null;
+  try { saved = localStorage.getItem("reef-lang"); } catch (e) {}
+  const match = c => {
+    c = String(c || "").toLowerCase();
+    return LANGS.find(l => l.code.toLowerCase() === c) || LANGS.find(l => l.code.toLowerCase() === c.split("-")[0]);
+  };
+  const wanted = [new URLSearchParams(location.search).get("lang"), saved, ...(navigator.languages || [navigator.language])];
+  return wanted.map(match).find(Boolean)?.code || "en";
+}
+
+picker.innerHTML = LANGS.map(l => `<option value="${esc(l.code)}" lang="${esc(l.code)}">${esc(l.name)}</option>`).join("");
+picker.hidden = LANGS.length < 2;
+picker.addEventListener("change", () => {
+  try { localStorage.setItem("reef-lang", picker.value); } catch (e) {}
+  try {
+    const url = new URL(location.href);
+    if (url.searchParams.has("lang")) { url.searchParams.set("lang", picker.value); history.replaceState(history.state, "", url); }
+  } catch (e) {}
+  useLang(picker.value);
+});
+
 // Mid-dive, the first press only asks; a second press on the same control within 4s confirms.
 function confirmAbandon(control) {
   if (!inProgress() || abandon === control) { clearTimeout(abandonTimer); abandon = null; return true; }
   abandon = control;
-  say("<strong>Press again to abandon this dive.</strong> Your progress will be lost.");
+  say(() => rich("status_abandon"));
   clearTimeout(abandonTimer);
-  abandonTimer = setTimeout(() => { abandon = null; say(`Dive in progress: ${found} of ${pairs} found.`); }, 4000);
+  abandonTimer = setTimeout(() => { abandon = null; const f = found; say(() => rich("status_in_progress", { count: f, pairs })); }, 4000);
   return false;
 }
 document.querySelectorAll(".levels button").forEach(b => b.addEventListener("click", () => {
   if (Number(b.dataset.pairs) !== pairs && confirmAbandon(b)) setLevel(Number(b.dataset.pairs));
 }));
 document.getElementById("restart").addEventListener("click", e => { if (confirmAbandon(e.currentTarget)) newGame(); });
-document.addEventListener("keydown", e => { if (e.key === "Escape" && !wideMQ.matches && !document.getElementById("lightbox").open) closeSheet(true); });
-document.getElementById("lightbox").addEventListener("click", e => { if (e.target === e.currentTarget) e.currentTarget.close(); });
+document.addEventListener("keydown", e => { if (e.key === "Escape" && !wideMQ.matches && !lightbox.open) closeSheet(true); });
+lightbox.addEventListener("click", e => { if (e.target === e.currentTarget) e.currentTarget.close(); });
 board.addEventListener("keydown", e => {
   const step = { ArrowLeft: -1, ArrowRight: 1, ArrowUp: -COLS[pairs], ArrowDown: COLS[pairs] }[e.key];
   if (!step) return;
@@ -533,9 +651,11 @@ board.addEventListener("keydown", e => {
   if (next) { e.preventDefault(); next.focus(); }
 });
 wideMQ.addEventListener("change", () => { if (wideMQ.matches) { if (!sheet.classList.contains("open")) showIntro(); } else closeSheet(); });
-credits();
+applyLang("en");
 ambientBubbles();
 newGame();
+const startLang = initialLang();
+if (startLang !== "en") useLang(startLang);
 </script>
 </body>
 </html>

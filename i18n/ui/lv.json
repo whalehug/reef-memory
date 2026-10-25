@@ -1,0 +1,87 @@
+{
+  "title": "Reef Memory",
+  "subtitle": {
+    "zero": "Atmiņas spēle ar {count} rifa dzīvniekiem iNaturalist lietotāju fotogrāfijās.",
+    "one": "Atmiņas spēle ar {count} rifa dzīvnieku iNaturalist lietotāju fotogrāfijās.",
+    "other": "Atmiņas spēle ar {count} rifa dzīvniekiem iNaturalist lietotāju fotogrāfijās."
+  },
+  "language_label": "Valoda",
+  "machine_note": "Šo tulkojumu vēl nav pārbaudījis cilvēks, kuram latviešu valoda ir dzimtā.",
+  "pairs_label": "Pāri",
+  "new_dive": "Jauna niršana",
+  "moves": {
+    "zero": "{count} gājienu",
+    "one": "{count} gājiens",
+    "other": "{count} gājieni"
+  },
+  "found": {
+    "zero": "Atrasti {count} no {pairs}",
+    "one": "Atrasts {count} no {pairs}",
+    "other": "Atrasti {count} no {pairs}"
+  },
+  "cleared_in": {
+    "zero": "Pabeigts {count} gājienos",
+    "one": "Pabeigts {count} gājienā",
+    "other": "Pabeigts {count} gājienos"
+  },
+  "board_label": "Atmiņas kārtis. Starp kārtīm pārvietojies ar bultiņu taustiņiem.",
+  "card_down": "Kārts {n}, aizklāta",
+  "card_up": "Kārts {n}, {name}",
+  "card_matched": "Kārts {n}, {name}, pāris atrasts. Rādīt faktu",
+  "status_start": {
+    "zero": "Katrai niršanai nejauši izvēlas {pairs} no {count} rifa dzīvniekiem. Lai sāktu, apgriez divas kārtis.",
+    "one": "Katrai niršanai nejauši izvēlas {pairs} no {count} rifa dzīvnieka. Lai sāktu, apgriez divas kārtis.",
+    "other": "Katrai niršanai nejauši izvēlas {pairs} no {count} rifa dzīvniekiem. Lai sāktu, apgriez divas kārtis."
+  },
+  "status_find_pair": "**{name}**. Atrodi pāri.",
+  "status_match": {
+    "zero": "**Pāris: {name}.** Atrasti {count} no {pairs}.",
+    "one": "**Pāris: {name}.** Atrasts {count} no {pairs}.",
+    "other": "**Pāris: {name}.** Atrasti {count} no {pairs}."
+  },
+  "status_miss": "Nesakrīt: {first} un {second}.",
+  "status_cleared": {
+    "zero": "**Rifs izpētīts** {count} gājienos.",
+    "one": "**Rifs izpētīts** {count} gājienā.",
+    "other": "**Rifs izpētīts** {count} gājienos."
+  },
+  "status_abandon": "**Nospied vēlreiz, lai pārtrauktu šo niršanu.** Paveiktais tiks zaudēts.",
+  "status_in_progress": {
+    "zero": "Niršana turpinās: atrasti {count} no {pairs}.",
+    "one": "Niršana turpinās: atrasts {count} no {pairs}.",
+    "other": "Niršana turpinās: atrasti {count} no {pairs}."
+  },
+  "facts_label": "Fakti par dzīvniekiem",
+  "close_facts": "Aizvērt faktus",
+  "sheet_intro": "Atrodi pāri, un šeit uzniras dzīvnieka stāsts.",
+  "zoom_label": "Rādīt lielāku foto: {name}",
+  "observations": {
+    "zero": "{count} iNaturalist novērojumu",
+    "one": "{count} iNaturalist novērojums",
+    "other": "{count} iNaturalist novērojumi"
+  },
+  "species_page": "Sugas lapa",
+  "photo_by": "Foto: {photographer}",
+  "unknown_photographer": "iNaturalist lietotājs",
+  "photo_label": "Foto",
+  "close_photo": "Aizvērt foto",
+  "won_title": "Rifs izpētīts",
+  "won_summary": {
+    "zero": "{pairs} pāri {count} gājienos. Ideālai niršanai pietiek ar {pairs} gājieniem.",
+    "one": "{pairs} pāri {count} gājienā. Ideālai niršanai pietiek ar {pairs} gājieniem.",
+    "other": "{pairs} pāri {count} gājienos. Ideālai niršanai pietiek ar {pairs} gājieniem."
+  },
+  "won_best_new": "Tas ir tavs labākais rezultāts ar šo pāru skaitu.",
+  "won_best": {
+    "zero": "Tavs labākais rezultāts ar {pairs} pāriem: {count} gājienu.",
+    "one": "Tavs labākais rezultāts ar {pairs} pāriem: {count} gājiens.",
+    "other": "Tavs labākais rezultāts ar {pairs} pāriem: {count} gājieni."
+  },
+  "dive_again": "Nirt vēlreiz",
+  "back_to_pairs": "Atpakaļ uz {pairs} pāriem",
+  "try_pairs": "Izmēģināt {pairs} pārus",
+  "log_title": "Niršanas žurnāls",
+  "log_hint": "Šeit krājas atrastie dzīvnieki. Izvēlies kādu no tiem vai atrastu kārti, lai vēlreiz izlasītu faktu.",
+  "about_photos": "Par fotogrāfijām",
+  "about_text": "Fotogrāfijas un novērojumu skaits ņemti no {inaturalist} atvērtajiem datiem. Katrai fotogrāfijai ir sava licence; atver autora saiti, lai redzētu fotogrāfijas lapu."
+}

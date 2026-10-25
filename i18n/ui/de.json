@@ -1,0 +1,76 @@
+{
+  "title": "Reef Memory",
+  "subtitle": {
+    "one": "Ein Memory mit {count} Rifftier, Fotos von iNaturalist.",
+    "other": "Ein Memory mit {count} Rifftieren, Fotos von iNaturalist."
+  },
+  "language_label": "Sprache",
+  "machine_note": "Diese Übersetzung wurde noch nicht von Muttersprachlern geprüft.",
+  "pairs_label": "Paare",
+  "new_dive": "Neuer Tauchgang",
+  "moves": {
+    "one": "{count} Zug",
+    "other": "{count} Züge"
+  },
+  "found": {
+    "one": "{count} von {pairs} gefunden",
+    "other": "{count} von {pairs} gefunden"
+  },
+  "cleared_in": {
+    "one": "Fertig nach {count} Zug",
+    "other": "Fertig nach {count} Zügen"
+  },
+  "board_label": "Memory-Karten. Mit den Pfeiltasten gehst du von Karte zu Karte.",
+  "card_down": "Karte {n}, verdeckt",
+  "card_up": "Karte {n}, {name}",
+  "card_matched": "Karte {n}, {name}, Paar gefunden. Wissenswertes zeigen",
+  "status_start": {
+    "one": "Jeder Tauchgang zeigt zufällig {pairs} von {count} Rifftier. Deck zwei Karten auf, um loszulegen.",
+    "other": "Jeder Tauchgang zeigt zufällig {pairs} von {count} Rifftieren. Deck zwei Karten auf, um loszulegen."
+  },
+  "status_find_pair": "**{name}**. Finde das Gegenstück.",
+  "status_match": {
+    "one": "**Paar: {name}.** {count} von {pairs} gefunden.",
+    "other": "**Paar: {name}.** {count} von {pairs} gefunden."
+  },
+  "status_miss": "Kein Paar: {first} und {second}.",
+  "status_cleared": {
+    "one": "**Riff erkundet** in {count} Zug.",
+    "other": "**Riff erkundet** in {count} Zügen."
+  },
+  "status_abandon": "**Noch einmal drücken, um den Tauchgang abzubrechen.** Dein Fortschritt geht verloren.",
+  "status_in_progress": {
+    "one": "Tauchgang läuft: {count} von {pairs} gefunden.",
+    "other": "Tauchgang läuft: {count} von {pairs} gefunden."
+  },
+  "facts_label": "Wissenswertes über Tiere",
+  "close_facts": "Wissenswertes schließen",
+  "sheet_intro": "Finde ein Paar, dann taucht hier die Geschichte des Tiers auf.",
+  "zoom_label": "Größeres Foto zeigen: {name}",
+  "observations": {
+    "one": "{count} Beobachtung auf iNaturalist",
+    "other": "{count} Beobachtungen auf iNaturalist"
+  },
+  "species_page": "Steckbrief",
+  "photo_by": "Foto: {photographer}",
+  "unknown_photographer": "iNaturalist-Mitglied",
+  "photo_label": "Foto",
+  "close_photo": "Foto schließen",
+  "won_title": "Riff erkundet",
+  "won_summary": {
+    "one": "{pairs} Paare in {count} Zug. Ein perfekter Tauchgang braucht {pairs} Züge.",
+    "other": "{pairs} Paare in {count} Zügen. Ein perfekter Tauchgang braucht {pairs} Züge."
+  },
+  "won_best_new": "Das ist dein Rekord für diese Größe.",
+  "won_best": {
+    "one": "Dein Rekord bei {pairs} Paaren: {count} Zug.",
+    "other": "Dein Rekord bei {pairs} Paaren: {count} Züge."
+  },
+  "dive_again": "Noch ein Tauchgang",
+  "back_to_pairs": "Zurück zu {pairs} Paaren",
+  "try_pairs": "{pairs} Paare probieren",
+  "log_title": "Logbuch",
+  "log_hint": "Gefundene Tiere sammeln sich hier. Wähle eins davon oder eine gefundene Karte, um das Wissenswerte noch einmal zu lesen.",
+  "about_photos": "Über die Fotos",
+  "about_text": "Fotos und Beobachtungszahlen stammen aus den offenen Daten von {inaturalist}. Jedes Foto behält seine eigene Lizenz; über den Bildnachweis kommst du zur Fotoseite."
+}

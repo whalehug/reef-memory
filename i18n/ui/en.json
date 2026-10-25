@@ -1,0 +1,141 @@
+{
+  "title": "Reef Memory",
+  "subtitle": {
+    "_comment": "Header line under the title. {count} is the number of species in the game.",
+    "one": "A memory game with {count} reef animal photographed on iNaturalist.",
+    "other": "A memory game with {count} reef animals photographed on iNaturalist."
+  },
+  "language_label": "Language",
+  "machine_note": {
+    "_comment": "Small note beside the language picker, shown only for translations not yet checked by a native speaker.",
+    "text": "This translation hasn't been reviewed by a native speaker yet."
+  },
+  "pairs_label": {
+    "_comment": "Label before the 8 / 12 / 18 buttons that pick how many pairs a dive deals.",
+    "text": "Pairs"
+  },
+  "new_dive": {
+    "_comment": "Button that deals a new board. A round of the game is called a dive.",
+    "text": "New dive"
+  },
+  "moves": {
+    "_comment": "Counter pill. A move is turning over two cards.",
+    "one": "{count} move",
+    "other": "{count} moves"
+  },
+  "found": {
+    "_comment": "Counter pill. {count} pairs found so far out of {pairs} (always 8, 12 or 18).",
+    "one": "{count} of {pairs} found",
+    "other": "{count} of {pairs} found"
+  },
+  "cleared_in": {
+    "_comment": "Counter pill once every pair is found. {count} is the number of moves.",
+    "one": "Cleared in {count}",
+    "other": "Cleared in {count}"
+  },
+  "board_label": {
+    "_comment": "Screen-reader label for the grid of cards.",
+    "text": "Memory cards. Arrow keys move between cards."
+  },
+  "card_down": {
+    "_comment": "Screen-reader label for a card. {n} is its position on the board.",
+    "text": "Card {n}, face down"
+  },
+  "card_up": "Card {n}, {name}",
+  "card_matched": "Card {n}, {name}, matched. Show its fact",
+  "status_start": {
+    "_comment": "Status line at the start of a dive. {pairs} is 8, 12 or 18; {count} is the number of species in the game.",
+    "one": "Each dive is a random {pairs} of {count} reef animal. Flip two cards to start.",
+    "other": "Each dive is a random {pairs} of {count} reef animals. Flip two cards to start."
+  },
+  "status_find_pair": {
+    "_comment": "Status line after the first card of a move. Text between ** is shown bold; keep the markers.",
+    "text": "**{name}**. Find its pair."
+  },
+  "status_match": {
+    "_comment": "Status line after a match. {count} pairs found so far out of {pairs}. Text between ** is shown bold.",
+    "one": "**Match: {name}.** {count} of {pairs} found.",
+    "other": "**Match: {name}.** {count} of {pairs} found."
+  },
+  "status_miss": {
+    "_comment": "Status line when the two cards differ. {first} and {second} are animal names.",
+    "text": "No match: {first} and {second}."
+  },
+  "status_cleared": {
+    "_comment": "Status line after the last match. {count} is the number of moves. Text between ** is shown bold.",
+    "one": "**Reef cleared** in {count} move.",
+    "other": "**Reef cleared** in {count} moves."
+  },
+  "status_abandon": {
+    "_comment": "Shown when New dive or another size is pressed mid-dive; a second press confirms. Text between ** is shown bold.",
+    "text": "**Press again to abandon this dive.** Your progress will be lost."
+  },
+  "status_in_progress": {
+    "_comment": "Shown when the abandon prompt times out. {count} pairs found so far out of {pairs}.",
+    "one": "Dive in progress: {count} of {pairs} found.",
+    "other": "Dive in progress: {count} of {pairs} found."
+  },
+  "facts_label": {
+    "_comment": "Screen-reader label for the panel that shows an animal's fact.",
+    "text": "Animal facts"
+  },
+  "close_facts": "Close facts",
+  "sheet_intro": {
+    "_comment": "Placeholder in the fact panel before the first match (wide screens only).",
+    "text": "Match a pair and the animal's story surfaces here."
+  },
+  "zoom_label": "Show a bigger photo of {name}",
+  "observations": {
+    "_comment": "Number of sightings of the species recorded on iNaturalist.",
+    "one": "{count} iNaturalist observation",
+    "other": "{count} iNaturalist observations"
+  },
+  "species_page": {
+    "_comment": "Link to the species page on iNaturalist.",
+    "text": "Species page"
+  },
+  "photo_by": {
+    "_comment": "Photo credit. {photographer} becomes a link to the photo page.",
+    "text": "Photo: {photographer}"
+  },
+  "unknown_photographer": {
+    "_comment": "Credit used when a photo has no photographer name.",
+    "text": "iNaturalist user"
+  },
+  "photo_label": {
+    "_comment": "Screen-reader label for the enlarged photo dialog.",
+    "text": "Photo"
+  },
+  "close_photo": "Close photo",
+  "won_title": "Reef cleared",
+  "won_summary": {
+    "_comment": "Win panel. {pairs} is 8, 12 or 18; {count} is the number of moves taken.",
+    "one": "{pairs} pairs in {count} move. A perfect dive is {pairs}.",
+    "other": "{pairs} pairs in {count} moves. A perfect dive is {pairs}."
+  },
+  "won_best_new": "That's your best at this size.",
+  "won_best": {
+    "_comment": "Win panel when the player didn't beat their record. {count} is the best number of moves.",
+    "one": "Your best at {pairs} pairs: {count} move.",
+    "other": "Your best at {pairs} pairs: {count} moves."
+  },
+  "dive_again": "Dive again",
+  "back_to_pairs": {
+    "_comment": "Win panel button that goes back to the smallest board. {pairs} is 8.",
+    "text": "Back to {pairs} pairs"
+  },
+  "try_pairs": {
+    "_comment": "Win panel button for the next bigger board. {pairs} is 12 or 18.",
+    "text": "Try {pairs} pairs"
+  },
+  "log_title": {
+    "_comment": "Heading over the list of animals matched in this dive.",
+    "text": "Dive log"
+  },
+  "log_hint": "Matched animals collect here. Select one, or a matched card, to read its fact again.",
+  "about_photos": "About the photos",
+  "about_text": {
+    "_comment": "{inaturalist} becomes a link with the name iNaturalist.",
+    "text": "Photos and observation counts come from {inaturalist} open data. Each photo keeps its own license; follow a credit to see its photo page."
+  }
+}
