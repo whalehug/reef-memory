@@ -1,9 +1,11 @@
-"""Build site/index.html from the template, taxa.json (iNaturalist), species.json (facts) and display.json (name overrides)."""
+"""Build site/index.html from the template, taxa.json (iNaturalist), species.json (facts), display.json (name overrides) and photos.json (photo overrides)."""
 import html, json, os
 
 taxa = json.load(open("taxa.json"))
 facts = json.load(open("species.json"))
 display = json.load(open("display.json"))
+photos = json.load(open("photos.json"))
+taxa = [{**t, **photos.get(t["query"], {})} for t in taxa]
 
 data = [{
     "id": t["id"], "name": t["name"], "common": display.get(t["query"]) or t["common"],

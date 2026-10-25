@@ -1,0 +1,182 @@
+{
+  "Achaeus japonicus": {
+    "photo_id": 196951511,
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/196951511/medium.jpg",
+    "license": "cc-by-nc",
+    "photographer": "searcaigh"
+  },
+  "Aliger gigas": {
+    "photo_id": 218108647,
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/218108647/medium.jpg",
+    "license": "cc-by",
+    "photographer": "Donald Davesne"
+  },
+  "Amblyrhynchus cristatus": {
+    "photo_id": 415887,
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/415887/medium.jpg",
+    "license": "cc-by-nc",
+    "photographer": "John Sullivan"
+  },
+  "Amphiprion ocellaris": {
+    "photo_id": 106318566,
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/106318566/medium.jpg",
+    "license": "cc-by-nc-sa",
+    "photographer": "Francois Libert"
+  },
+  "Arothron meleagris": {
+    "photo_id": 361169039,
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/361169039/medium.jpg",
+    "license": "cc-by-nc",
+    "photographer": "campbell_david"
+  },
+  "Aulostomus maculatus": {
+    "photo_id": 443957073,
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/443957073/medium.jpg",
+    "license": "cc-by-nc",
+    "photographer": "Frank Krasovec"
+  },
+  "Balaenoptera musculus": {
+    "photo_id": 144016335,
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/144016335/medium.jpg",
+    "license": "cc-by-nc",
+    "photographer": "azure27014"
+  },
+  "Carcharias taurus": {
+    "photo_id": 537445585,
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/537445585/medium.jpg",
+    "license": "cc-by-nc",
+    "photographer": "Luis P. B."
+  },
+  "Caretta caretta": {
+    "photo_id": 176773739,
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/176773739/medium.jpeg",
+    "license": "cc-by-nc",
+    "photographer": "Roberto Pillon"
+  },
+  "Cassiopea andromeda": {
+    "photo_id": 72742441,
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/72742441/medium.jpg",
+    "license": "cc-by-nc",
+    "photographer": "charm"
+  },
+  "Cetorhinus maximus": {
+    "photo_id": 133575107,
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/133575107/medium.jpg",
+    "license": "cc-by-nc",
+    "photographer": "azure27014"
+  },
+  "Charonia tritonis": {
+    "photo_id": 184046569,
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/184046569/medium.jpg",
+    "license": "cc-by-nc",
+    "photographer": "uwkwaj"
+  },
+  "Delphinapterus leucas": {
+    "photo_id": 85516711,
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/85516711/medium.jpg",
+    "license": "cc-by-nc",
+    "photographer": "cotinga"
+  },
+  "Dermochelys coriacea": {
+    "photo_id": 244918310,
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/244918310/medium.jpg",
+    "license": "cc-by-nc",
+    "photographer": "azure27014"
+  },
+  "Dugong dugon": {
+    "photo_id": 181064347,
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/181064347/medium.jpeg",
+    "license": "cc-by-nc",
+    "photographer": "Sylvain Le Bris"
+  },
+  "Hippocampus kuda": {
+    "photo_id": 568085534,
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/568085534/medium.jpg",
+    "license": "cc-by-nc",
+    "photographer": "Karishma goenka"
+  },
+  "Histrio histrio": {
+    "photo_id": 354358094,
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/354358094/medium.jpg",
+    "license": "cc-by-nc",
+    "photographer": "Laura Kushner"
+  },
+  "Hydrophis platurus": {
+    "photo_id": 519729360,
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/519729360/medium.jpg",
+    "license": "cc-by-nc",
+    "photographer": "Simon Pierce"
+  },
+  "Lauriea siagiani": {
+    "photo_id": 230832,
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/230832/medium.jpg",
+    "license": "cc-by-nc",
+    "photographer": "Mark Rosenstein"
+  },
+  "Lybia tessellata": {
+    "photo_id": 135219883,
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/135219883/medium.jpeg",
+    "license": "cc-by-nc",
+    "photographer": "Julian Hsu"
+  },
+  "Nautilus pompilius": {
+    "photo_id": 30247026,
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/30247026/medium.jpg",
+    "license": "cc-by",
+    "photographer": "Karim Haddad"
+  },
+  "Ophioblennius macclurei": {
+    "photo_id": 31225594,
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/31225594/medium.jpg",
+    "license": "cc-by-nc",
+    "photographer": "terence zahner"
+  },
+  "Panulirus argus": {
+    "photo_id": 56618817,
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/56618817/medium.jpeg",
+    "license": "cc-by-nc",
+    "photographer": "Rachel Andres-Beck"
+  },
+  "Poroderma africanum": {
+    "photo_id": 15947416,
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/15947416/medium.jpg",
+    "license": "cc-by-sa",
+    "photographer": "Peter Southwood"
+  },
+  "Rhinoptera bonasus": {
+    "photo_id": 16244412,
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/16244412/medium.jpg",
+    "license": "cc-by-nc",
+    "photographer": "susan11111fca"
+  },
+  "Sphyraena barracuda": {
+    "photo_id": 229031414,
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/229031414/medium.jpg",
+    "license": "cc-by-nc",
+    "photographer": "François Libert"
+  },
+  "Stenopus hispidus": {
+    "photo_id": 611426286,
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/611426286/medium.jpg",
+    "license": "cc-by-nc-sa",
+    "photographer": "Alexander Semenov"
+  },
+  "Triakis semifasciata": {
+    "photo_id": 465432465,
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/465432465/medium.png",
+    "license": "cc-by-nc",
+    "photographer": "Andrew Harmer"
+  },
+  "Tursiops truncatus": {
+    "photo_id": 611231392,
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/611231392/medium.jpg",
+    "license": "cc-by-nc",
+    "photographer": "Frank Krasovec"
+  },
+  "Velella velella": {
+    "photo_id": 362651247,
+    "photo": "https://inaturalist-open-data.s3.amazonaws.com/photos/362651247/medium.jpg",
+    "license": "cc-by-nc",
+    "photographer": "markc666"
+  }
+}
