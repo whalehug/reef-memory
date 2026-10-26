@@ -15,9 +15,9 @@
     "other": "{count} jugadas"
   },
   "found": {
-    "one": "{count} de {pairs} encontrada",
-    "many": "{count} de {pairs} encontradas",
-    "other": "{count} de {pairs} encontradas"
+    "one": "{count} de {pairs} parejas",
+    "many": "{count} de {pairs} parejas",
+    "other": "{count} de {pairs} parejas"
   },
   "cleared_in": {
     "one": "Listo en {count} jugada",
@@ -35,9 +35,9 @@
   },
   "status_find_pair": "**{name}**. Encuentra su pareja.",
   "status_match": {
-    "one": "**Pareja: {name}.** {count} de {pairs} encontrada.",
-    "many": "**Pareja: {name}.** {count} de {pairs} encontradas.",
-    "other": "**Pareja: {name}.** {count} de {pairs} encontradas."
+    "one": "**Pareja: {name}.** Llevas {count} de {pairs}.",
+    "many": "**Pareja: {name}.** Llevas {count} de {pairs}.",
+    "other": "**Pareja: {name}.** Llevas {count} de {pairs}."
   },
   "status_miss": "No son pareja: {first} y {second}.",
   "status_cleared": {
@@ -47,14 +47,14 @@
   },
   "status_abandon": "**Presiona otra vez para abandonar esta inmersión.** Perderás tu progreso.",
   "status_in_progress": {
-    "one": "Inmersión en curso: {count} de {pairs} encontrada.",
-    "many": "Inmersión en curso: {count} de {pairs} encontradas.",
-    "other": "Inmersión en curso: {count} de {pairs} encontradas."
+    "one": "Inmersión en curso: llevas {count} de {pairs} parejas.",
+    "many": "Inmersión en curso: llevas {count} de {pairs} parejas.",
+    "other": "Inmersión en curso: llevas {count} de {pairs} parejas."
   },
   "facts_label": "Datos curiosos de animales",
   "close_facts": "Cerrar datos curiosos",
-  "sheet_intro": "Encuentra una pareja y aquí emergerá la historia del animal.",
-  "zoom_label": "Ver foto más grande: {name}",
+  "sheet_intro": "Encuentra una pareja y aquí aparecerá la historia del animal.",
+  "zoom_label": "Ampliar la foto de {name}",
   "observations": {
     "one": "{count} observación en iNaturalist",
     "many": "{count} de observaciones en iNaturalist",
@@ -62,7 +62,7 @@
   },
   "species_page": "Página de la especie",
   "photo_by": "Foto: {photographer}",
-  "unknown_photographer": "miembro de iNaturalist",
+  "unknown_photographer": "usuario de iNaturalist",
   "photo_label": "Foto",
   "close_photo": "Cerrar foto",
   "won_title": "Arrecife explorado",
@@ -71,7 +71,7 @@
     "many": "{pairs} parejas en {count} de jugadas. Una inmersión perfecta son {pairs} jugadas.",
     "other": "{pairs} parejas en {count} jugadas. Una inmersión perfecta son {pairs} jugadas."
   },
-  "won_best_new": "Es tu récord para este tamaño.",
+  "won_best_new": "Es tu récord con este número de parejas.",
   "won_best": {
     "one": "Tu récord con {pairs} parejas: {count} jugada.",
     "many": "Tu récord con {pairs} parejas: {count} de jugadas.",
@@ -81,7 +81,7 @@
   "back_to_pairs": "Volver a {pairs} parejas",
   "try_pairs": "Probar con {pairs} parejas",
   "log_title": "Diario de inmersión",
-  "log_hint": "Aquí se reúnen los animales encontrados. Elige uno, o una carta ya emparejada, para volver a leer su dato curioso.",
+  "log_hint": "Aquí se van guardando los animales que encuentres. Elige uno, o una carta ya emparejada, para volver a leer su dato curioso.",
   "about_photos": "Sobre las fotos",
-  "about_text": "Las fotos y los recuentos de observaciones vienen de los datos abiertos de {inaturalist}. Cada foto conserva su propia licencia; el enlace del crédito lleva a la página de la foto."
+  "about_text": "Las fotos y el número de observaciones vienen de los datos abiertos de {inaturalist}. Cada foto conserva su propia licencia; el enlace del crédito lleva a la página de la foto."
 }

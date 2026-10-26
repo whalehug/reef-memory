@@ -1,9 +1,9 @@
 {
   "title": "Reef Memory",
   "subtitle": {
-    "one": "Un memory con {count} animale della barriera fotografato su iNaturalist.",
-    "many": "Un memory con {count} di animali della barriera fotografati su iNaturalist.",
-    "other": "Un memory con {count} animali della barriera fotografati su iNaturalist."
+    "one": "Un memory con {count} animale della barriera corallina, fotografato su iNaturalist.",
+    "many": "Un memory con {count} di animali della barriera corallina, fotografati su iNaturalist.",
+    "other": "Un memory con {count} animali della barriera corallina, fotografati su iNaturalist."
   },
   "language_label": "Lingua",
   "machine_note": "Questa traduzione non è ancora stata rivista da un madrelingua.",
@@ -15,9 +15,9 @@
     "other": "{count} mosse"
   },
   "found": {
-    "one": "{count} su {pairs} trovata",
-    "many": "{count} su {pairs} trovate",
-    "other": "{count} su {pairs} trovate"
+    "one": "{count} coppia su {pairs}",
+    "many": "{count} di coppie su {pairs}",
+    "other": "{count} coppie su {pairs}"
   },
   "cleared_in": {
     "one": "Finito in {count} mossa",
@@ -29,15 +29,15 @@
   "card_up": "Carta {n}, {name}",
   "card_matched": "Carta {n}, {name}, coppia trovata. Mostra la curiosità",
   "status_start": {
-    "one": "Ogni immersione pesca a caso {pairs} animali della barriera su {count}. Gira due carte per iniziare.",
-    "many": "Ogni immersione pesca a caso {pairs} animali della barriera su {count}. Gira due carte per iniziare.",
-    "other": "Ogni immersione pesca a caso {pairs} animali della barriera su {count}. Gira due carte per iniziare."
+    "one": "In ogni immersione ci sono {pairs} animali pescati a caso tra {count}. Gira due carte per cominciare.",
+    "many": "In ogni immersione ci sono {pairs} animali pescati a caso tra {count}. Gira due carte per cominciare.",
+    "other": "In ogni immersione ci sono {pairs} animali pescati a caso tra {count}. Gira due carte per cominciare."
   },
-  "status_find_pair": "**{name}**. Trova la sua gemella.",
+  "status_find_pair": "**{name}**. Trova la carta gemella.",
   "status_match": {
-    "one": "**Coppia: {name}.** {count} su {pairs} trovata.",
-    "many": "**Coppia: {name}.** {count} su {pairs} trovate.",
-    "other": "**Coppia: {name}.** {count} su {pairs} trovate."
+    "one": "**Coppia: {name}.** Ne hai trovata {count} su {pairs}.",
+    "many": "**Coppia: {name}.** Ne hai trovate {count} su {pairs}.",
+    "other": "**Coppia: {name}.** Ne hai trovate {count} su {pairs}."
   },
   "status_miss": "Non fanno coppia: {first} e {second}.",
   "status_cleared": {
@@ -45,16 +45,16 @@
     "many": "**Barriera esplorata** in {count} di mosse.",
     "other": "**Barriera esplorata** in {count} mosse."
   },
-  "status_abandon": "**Premi di nuovo per abbandonare questa immersione.** I progressi andranno persi.",
+  "status_abandon": "**Premi di nuovo per lasciare questa immersione.** Perderai i progressi.",
   "status_in_progress": {
-    "one": "Immersione in corso: {count} su {pairs} trovata.",
-    "many": "Immersione in corso: {count} su {pairs} trovate.",
-    "other": "Immersione in corso: {count} su {pairs} trovate."
+    "one": "Immersione in corso: {count} coppia su {pairs}.",
+    "many": "Immersione in corso: {count} di coppie su {pairs}.",
+    "other": "Immersione in corso: {count} coppie su {pairs}."
   },
   "facts_label": "Curiosità sugli animali",
   "close_facts": "Chiudi curiosità",
-  "sheet_intro": "Trova una coppia e la storia dell’animale affiorerà qui.",
-  "zoom_label": "Ingrandisci la foto: {name}",
+  "sheet_intro": "Trova una coppia e qui comparirà la storia dell’animale.",
+  "zoom_label": "Ingrandisci la foto di {name}",
   "observations": {
     "one": "{count} osservazione su iNaturalist",
     "many": "{count} di osservazioni su iNaturalist",
@@ -67,11 +67,11 @@
   "close_photo": "Chiudi foto",
   "won_title": "Barriera esplorata",
   "won_summary": {
-    "one": "{pairs} coppie in {count} mossa. Un’immersione perfetta è di {pairs} mosse.",
-    "many": "{pairs} coppie in {count} di mosse. Un’immersione perfetta è di {pairs} mosse.",
-    "other": "{pairs} coppie in {count} mosse. Un’immersione perfetta è di {pairs} mosse."
+    "one": "{pairs} coppie in {count} mossa. Un’immersione perfetta ne richiede {pairs}.",
+    "many": "{pairs} coppie in {count} di mosse. Un’immersione perfetta ne richiede {pairs}.",
+    "other": "{pairs} coppie in {count} mosse. Un’immersione perfetta ne richiede {pairs}."
   },
-  "won_best_new": "È il tuo record con questo numero di coppie.",
+  "won_best_new": "È il tuo nuovo record con questo numero di coppie.",
   "won_best": {
     "one": "Il tuo record con {pairs} coppie: {count} mossa.",
     "many": "Il tuo record con {pairs} coppie: {count} di mosse.",
@@ -81,7 +81,7 @@
   "back_to_pairs": "Torna a {pairs} coppie",
   "try_pairs": "Prova con {pairs} coppie",
   "log_title": "Diario d’immersione",
-  "log_hint": "Qui si raccolgono gli animali trovati. Scegline uno, o una carta già abbinata, per rileggere la sua curiosità.",
+  "log_hint": "Qui trovi gli animali che hai abbinato. Scegline uno, o una carta già abbinata, per rileggere la sua curiosità.",
   "about_photos": "Informazioni sulle foto",
-  "about_text": "Le foto e i conteggi delle osservazioni provengono dai dati aperti di {inaturalist}. Ogni foto ha la sua licenza: segui il link dell’autore per vedere la pagina della foto."
+  "about_text": "Le foto e il numero di osservazioni vengono dai dati aperti di {inaturalist}. Ogni foto ha la sua licenza: clicca sul nome dell’autore per vedere la pagina della foto."
 }

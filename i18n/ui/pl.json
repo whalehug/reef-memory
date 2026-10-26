@@ -1,10 +1,10 @@
 {
   "title": "Reef Memory",
   "subtitle": {
-    "one": "Gra pamięciowa z {count} zwierzęciem rafowym na zdjęciach z iNaturalist.",
-    "few": "Gra pamięciowa z {count} zwierzętami rafowymi na zdjęciach z iNaturalist.",
-    "many": "Gra pamięciowa z {count} zwierzętami rafowymi na zdjęciach z iNaturalist.",
-    "other": "Gra pamięciowa z {count} zwierzęcia rafowego na zdjęciach z iNaturalist."
+    "one": "Gra w pary: {count} zwierzę z rafy na zdjęciach z iNaturalist.",
+    "few": "Gra w pary: {count} zwierzęta z rafy na zdjęciach z iNaturalist.",
+    "many": "Gra w pary: {count} zwierząt z rafy na zdjęciach z iNaturalist.",
+    "other": "Gra w pary: {count} zwierzęcia z rafy na zdjęciach z iNaturalist."
   },
   "language_label": "Język",
   "machine_note": "Tego tłumaczenia nie sprawdził jeszcze rodzimy użytkownik języka.",
@@ -17,10 +17,10 @@
     "other": "{count} ruchu"
   },
   "found": {
-    "one": "Znaleziono {count} z {pairs}",
-    "few": "Znaleziono {count} z {pairs}",
-    "many": "Znaleziono {count} z {pairs}",
-    "other": "Znaleziono {count} z {pairs}"
+    "one": "{count} z {pairs} par",
+    "few": "{count} z {pairs} par",
+    "many": "{count} z {pairs} par",
+    "other": "{count} z {pairs} par"
   },
   "cleared_in": {
     "one": "Gotowe w {count} ruchu",
@@ -28,10 +28,10 @@
     "many": "Gotowe w {count} ruchach",
     "other": "Gotowe w {count} ruchu"
   },
-  "board_label": "Plansza z kartami. Strzałkami przechodzisz między kartami.",
+  "board_label": "Plansza z kartami. Między kartami przechodzisz strzałkami.",
   "card_down": "Karta {n}, zakryta",
   "card_up": "Karta {n}, {name}",
-  "card_matched": "Karta {n}, {name}, dopasowana. Pokaż ciekawostkę",
+  "card_matched": "Karta {n}, {name}, para znaleziona. Pokaż ciekawostkę",
   "status_start": {
     "one": "Każde nurkowanie to {pairs} losowych zwierząt spośród {count} mieszkańca rafy. Odkryj dwie karty, żeby zacząć.",
     "few": "Każde nurkowanie to {pairs} losowych zwierząt spośród {count} mieszkańców rafy. Odkryj dwie karty, żeby zacząć.",
@@ -40,37 +40,37 @@
   },
   "status_find_pair": "**{name}**. Znajdź parę.",
   "status_match": {
-    "one": "**Jest para: {name}.** Znaleziono {count} z {pairs}.",
-    "few": "**Jest para: {name}.** Znaleziono {count} z {pairs}.",
-    "many": "**Jest para: {name}.** Znaleziono {count} z {pairs}.",
-    "other": "**Jest para: {name}.** Znaleziono {count} z {pairs}."
+    "one": "**Jest para: {name}.** Masz już {count} z {pairs}.",
+    "few": "**Jest para: {name}.** Masz już {count} z {pairs}.",
+    "many": "**Jest para: {name}.** Masz już {count} z {pairs}.",
+    "other": "**Jest para: {name}.** Masz już {count} z {pairs}."
   },
-  "status_miss": "Nie pasują: {first} i {second}.",
+  "status_miss": "To nie para: {first} i {second}.",
   "status_cleared": {
-    "one": "**Rafa odkryta** w {count} ruchu.",
-    "few": "**Rafa odkryta** w {count} ruchach.",
-    "many": "**Rafa odkryta** w {count} ruchach.",
-    "other": "**Rafa odkryta** w {count} ruchu."
+    "one": "**Cała rafa odkryta** w {count} ruchu.",
+    "few": "**Cała rafa odkryta** w {count} ruchach.",
+    "many": "**Cała rafa odkryta** w {count} ruchach.",
+    "other": "**Cała rafa odkryta** w {count} ruchu."
   },
-  "status_abandon": "**Naciśnij jeszcze raz, żeby przerwać to nurkowanie.** Postęp przepadnie.",
+  "status_abandon": "**Naciśnij jeszcze raz, żeby przerwać nurkowanie.** Stracisz postępy.",
   "status_in_progress": {
-    "one": "Nurkowanie w toku: znaleziono {count} z {pairs}.",
-    "few": "Nurkowanie w toku: znaleziono {count} z {pairs}.",
-    "many": "Nurkowanie w toku: znaleziono {count} z {pairs}.",
-    "other": "Nurkowanie w toku: znaleziono {count} z {pairs}."
+    "one": "Nurkowanie trwa: masz {count} z {pairs} par.",
+    "few": "Nurkowanie trwa: masz {count} z {pairs} par.",
+    "many": "Nurkowanie trwa: masz {count} z {pairs} par.",
+    "other": "Nurkowanie trwa: masz {count} z {pairs} par."
   },
   "facts_label": "Ciekawostki o zwierzętach",
   "close_facts": "Zamknij ciekawostki",
-  "sheet_intro": "Znajdź parę, a historia zwierzęcia wypłynie tutaj.",
-  "zoom_label": "Pokaż większe zdjęcie: {name}",
+  "sheet_intro": "Znajdź parę, a tu wypłynie ciekawostka o zwierzęciu.",
+  "zoom_label": "Powiększ zdjęcie: {name}",
   "observations": {
-    "one": "{count} obserwacja w iNaturalist",
-    "few": "{count} obserwacje w iNaturalist",
-    "many": "{count} obserwacji w iNaturalist",
-    "other": "{count} obserwacji w iNaturalist"
+    "one": "{count} obserwacja na iNaturalist",
+    "few": "{count} obserwacje na iNaturalist",
+    "many": "{count} obserwacji na iNaturalist",
+    "other": "{count} obserwacji na iNaturalist"
   },
   "species_page": "Strona gatunku",
-  "photo_by": "Zdjęcie: {photographer}",
+  "photo_by": "Fot. {photographer}",
   "unknown_photographer": "użytkownik iNaturalist",
   "photo_label": "Zdjęcie",
   "close_photo": "Zamknij zdjęcie",
@@ -81,18 +81,18 @@
     "many": "{pairs} par w {count} ruchach. Idealne nurkowanie to {pairs} ruchów.",
     "other": "{pairs} par w {count} ruchu. Idealne nurkowanie to {pairs} ruchów."
   },
-  "won_best_new": "To twój nowy rekord przy tej liczbie par.",
+  "won_best_new": "Nowy rekord przy tej liczbie par.",
   "won_best": {
-    "one": "Twój rekord przy {pairs} parach: {count} ruch.",
-    "few": "Twój rekord przy {pairs} parach: {count} ruchy.",
-    "many": "Twój rekord przy {pairs} parach: {count} ruchów.",
-    "other": "Twój rekord przy {pairs} parach: {count} ruchu."
+    "one": "Twój rekord dla {pairs} par: {count} ruch.",
+    "few": "Twój rekord dla {pairs} par: {count} ruchy.",
+    "many": "Twój rekord dla {pairs} par: {count} ruchów.",
+    "other": "Twój rekord dla {pairs} par: {count} ruchu."
   },
   "dive_again": "Nurkuj jeszcze raz",
   "back_to_pairs": "Wróć do {pairs} par",
   "try_pairs": "Spróbuj z {pairs} parami",
   "log_title": "Dziennik nurkowania",
-  "log_hint": "Tu zbierają się znalezione zwierzęta. Wybierz jedno albo dopasowaną kartę, żeby znów przeczytać ciekawostkę.",
+  "log_hint": "Tu zbierają się znalezione zwierzęta. Wybierz jedno z nich albo odkrytą parę, żeby jeszcze raz przeczytać ciekawostkę.",
   "about_photos": "O zdjęciach",
-  "about_text": "Zdjęcia i liczby obserwacji pochodzą z otwartych danych {inaturalist}. Każde zdjęcie ma własną licencję; kliknij podpis autora, żeby zobaczyć stronę zdjęcia."
+  "about_text": "Zdjęcia i liczby obserwacji pochodzą z otwartych danych {inaturalist}. Każde zdjęcie ma własną licencję. Kliknij podpis autora, żeby zobaczyć stronę zdjęcia."
 }

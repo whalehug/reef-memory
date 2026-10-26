@@ -1,8 +1,8 @@
 {
   "title": "Reef Memory",
   "subtitle": {
-    "one": "Ein Memory mit {count} Rifftier, Fotos von iNaturalist.",
-    "other": "Ein Memory mit {count} Rifftieren, Fotos von iNaturalist."
+    "one": "Ein Memory mit {count} Rifftier und Fotos von iNaturalist.",
+    "other": "Ein Memory mit {count} Rifftieren und Fotos von iNaturalist."
   },
   "language_label": "Sprache",
   "machine_note": "Diese Übersetzung wurde noch nicht von Muttersprachlern geprüft.",
@@ -28,10 +28,10 @@
     "one": "Jeder Tauchgang zeigt zufällig {pairs} von {count} Rifftier. Deck zwei Karten auf, um loszulegen.",
     "other": "Jeder Tauchgang zeigt zufällig {pairs} von {count} Rifftieren. Deck zwei Karten auf, um loszulegen."
   },
-  "status_find_pair": "**{name}**. Finde das Gegenstück.",
+  "status_find_pair": "**{name}**. Wo ist die zweite Karte?",
   "status_match": {
-    "one": "**Paar: {name}.** {count} von {pairs} gefunden.",
-    "other": "**Paar: {name}.** {count} von {pairs} gefunden."
+    "one": "**Treffer: {name}.** {count} von {pairs} gefunden.",
+    "other": "**Treffer: {name}.** {count} von {pairs} gefunden."
   },
   "status_miss": "Kein Paar: {first} und {second}.",
   "status_cleared": {
@@ -43,7 +43,7 @@
     "one": "Tauchgang läuft: {count} von {pairs} gefunden.",
     "other": "Tauchgang läuft: {count} von {pairs} gefunden."
   },
-  "facts_label": "Wissenswertes über Tiere",
+  "facts_label": "Wissenswertes zum Tier",
   "close_facts": "Wissenswertes schließen",
   "sheet_intro": "Finde ein Paar, dann taucht hier die Geschichte des Tiers auf.",
   "zoom_label": "Größeres Foto zeigen: {name}",
@@ -61,16 +61,16 @@
     "one": "{pairs} Paare in {count} Zug. Ein perfekter Tauchgang braucht {pairs} Züge.",
     "other": "{pairs} Paare in {count} Zügen. Ein perfekter Tauchgang braucht {pairs} Züge."
   },
-  "won_best_new": "Das ist dein Rekord für diese Größe.",
+  "won_best_new": "Neuer Rekord für dieses Spielfeld.",
   "won_best": {
     "one": "Dein Rekord bei {pairs} Paaren: {count} Zug.",
     "other": "Dein Rekord bei {pairs} Paaren: {count} Züge."
   },
   "dive_again": "Noch ein Tauchgang",
   "back_to_pairs": "Zurück zu {pairs} Paaren",
-  "try_pairs": "{pairs} Paare probieren",
+  "try_pairs": "Mit {pairs} Paaren spielen",
   "log_title": "Logbuch",
-  "log_hint": "Gefundene Tiere sammeln sich hier. Wähle eins davon oder eine gefundene Karte, um das Wissenswerte noch einmal zu lesen.",
+  "log_hint": "Hier landen alle gefundenen Tiere. Wähle eins oder eine aufgedeckte Paarkarte, um noch einmal nachzulesen.",
   "about_photos": "Über die Fotos",
   "about_text": "Fotos und Beobachtungszahlen stammen aus den offenen Daten von {inaturalist}. Jedes Foto behält seine eigene Lizenz; über den Bildnachweis kommst du zur Fotoseite."
 }

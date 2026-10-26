@@ -29,9 +29,9 @@
   "card_up": "Kārts {n}, {name}",
   "card_matched": "Kārts {n}, {name}, pāris atrasts. Rādīt faktu",
   "status_start": {
-    "zero": "Katrai niršanai nejauši izvēlas {pairs} no {count} rifa dzīvniekiem. Lai sāktu, apgriez divas kārtis.",
-    "one": "Katrai niršanai nejauši izvēlas {pairs} no {count} rifa dzīvnieka. Lai sāktu, apgriez divas kārtis.",
-    "other": "Katrai niršanai nejauši izvēlas {pairs} no {count} rifa dzīvniekiem. Lai sāktu, apgriez divas kārtis."
+    "zero": "Katrai niršanai spēle nejauši izvēlas {pairs} no {count} rifa dzīvniekiem. Lai sāktu, apgriez divas kārtis.",
+    "one": "Katrai niršanai spēle nejauši izvēlas {pairs} no {count} rifa dzīvnieka. Lai sāktu, apgriez divas kārtis.",
+    "other": "Katrai niršanai spēle nejauši izvēlas {pairs} no {count} rifa dzīvniekiem. Lai sāktu, apgriez divas kārtis."
   },
   "status_find_pair": "**{name}**. Atrodi pāri.",
   "status_match": {
@@ -45,7 +45,7 @@
     "one": "**Rifs izpētīts** {count} gājienā.",
     "other": "**Rifs izpētīts** {count} gājienos."
   },
-  "status_abandon": "**Nospied vēlreiz, lai pārtrauktu šo niršanu.** Paveiktais tiks zaudēts.",
+  "status_abandon": "**Nospied vēlreiz, lai pārtrauktu šo niršanu.** Paveiktais pazudīs.",
   "status_in_progress": {
     "zero": "Niršana turpinās: atrasti {count} no {pairs}.",
     "one": "Niršana turpinās: atrasts {count} no {pairs}.",
@@ -81,7 +81,7 @@
   "back_to_pairs": "Atpakaļ uz {pairs} pāriem",
   "try_pairs": "Izmēģināt {pairs} pārus",
   "log_title": "Niršanas žurnāls",
-  "log_hint": "Šeit krājas atrastie dzīvnieki. Izvēlies kādu no tiem vai atrastu kārti, lai vēlreiz izlasītu faktu.",
+  "log_hint": "Šeit sakrājas atrastie dzīvnieki. Izvēlies kādu no tiem vai jau atrastu kārti, lai vēlreiz izlasītu faktu.",
   "about_photos": "Par fotogrāfijām",
-  "about_text": "Fotogrāfijas un novērojumu skaits ņemti no {inaturalist} atvērtajiem datiem. Katrai fotogrāfijai ir sava licence; atver autora saiti, lai redzētu fotogrāfijas lapu."
+  "about_text": "Fotogrāfijas un novērojumu skaits nāk no {inaturalist} atvērtajiem datiem. Katrai fotogrāfijai ir sava licence, un autora vārds ved uz fotogrāfijas lapu."
 }
